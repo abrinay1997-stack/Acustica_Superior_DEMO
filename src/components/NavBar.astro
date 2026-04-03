@@ -1,17 +1,17 @@
 ---
-const base = import.meta.env.BASE_URL;
+import { b } from '../utils/base';
 const links = [
-  { href: base, label: 'Inicio' },
-  { href: `${base}quienes-somos`, label: 'Quiénes Somos' },
-  { href: `${base}servicios`, label: 'Servicios' },
-  { href: `${base}proyectos`, label: 'Proyectos' },
-  { href: `${base}contacto`, label: 'Contacto' },
+  { href: `${b}/`, label: 'Inicio' },
+  { href: `${b}/quienes-somos`, label: 'Quiénes Somos' },
+  { href: `${b}/servicios`, label: 'Servicios' },
+  { href: `${b}/proyectos`, label: 'Proyectos' },
+  { href: `${b}/contacto`, label: 'Contacto' },
 ];
 ---
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href={base} class="flex items-center gap-2">
-      <img src={`${base}Logo/LOGO.webp`} alt="Acústica Superior" class="h-8 w-auto" />
+    <a href={`${b}/`} class="flex items-center gap-2">
+      <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" class="h-8 w-auto" />
     </a>
     <ul class="hidden md:flex items-center gap-8">
       {links.map(link => (

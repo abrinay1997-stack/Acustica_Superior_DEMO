@@ -1,10 +1,10 @@
 ---
-const base = import.meta.env.BASE_URL;
+import { b } from '../utils/base';
 ---
 <footer style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 5rem;">
   <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
     <div>
-      <img src={`${base}Logo/LOGO.webp`} alt="Acústica Superior" class="h-10 w-auto mb-4" />
+      <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" class="h-10 w-auto mb-4" />
       <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.45)">
         Soluciones acústicas profesionales para estudios, oficinas y espacios industriales en Panamá.
       </p>
@@ -12,10 +12,10 @@ const base = import.meta.env.BASE_URL;
     <div>
       <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Páginas</h3>
       <ul class="flex flex-col gap-2 text-sm" style="color: rgba(255,255,255,0.45)">
-        <li><a href={`${base}quienes-somos`} class="hover:text-white transition-colors">Quiénes Somos</a></li>
-        <li><a href={`${base}servicios`} class="hover:text-white transition-colors">Servicios</a></li>
-        <li><a href={`${base}proyectos`} class="hover:text-white transition-colors">Proyectos</a></li>
-        <li><a href={`${base}contacto`} class="hover:text-white transition-colors">Contacto</a></li>
+        <li><a href={`${b}/quienes-somos`} class="hover:text-white transition-colors">Quiénes Somos</a></li>
+        <li><a href={`${b}/servicios`} class="hover:text-white transition-colors">Servicios</a></li>
+        <li><a href={`${b}/proyectos`} class="hover:text-white transition-colors">Proyectos</a></li>
+        <li><a href={`${b}/contacto`} class="hover:text-white transition-colors">Contacto</a></li>
       </ul>
     </div>
     <div>

@@ -3,35 +3,35 @@ interface Props {
   preview?: boolean;
 }
 const { preview = false } = Astro.props;
-const base = import.meta.env.BASE_URL;
+import { b } from '../utils/base';
 
 const servicios = [
   {
-    imagen: `${base}images/Adecuación_acustica.webp`,
+    imagen: `${b}/images/Adecuación_acustica.webp`,
     titulo: 'Adecuación Acústica',
     descripcion: 'Optimizamos el comportamiento sonoro de tu espacio interior mediante análisis y tratamiento personalizado.',
     id: 'adecuacion',
   },
   {
-    imagen: `${base}images/Aislamiento_y_bloqueo_acustico.webp`,
+    imagen: `${b}/images/Aislamiento_y_bloqueo_acustico.webp`,
     titulo: 'Aislamiento y Bloqueo Acústico',
     descripcion: 'Barreras técnicas que controlan la transmisión de sonido entre ambientes para máxima privacidad.',
     id: 'aislamiento',
   },
   {
-    imagen: `${base}images/Balance_frecuencial.webp`,
+    imagen: `${b}/images/Balance_frecuencial.webp`,
     titulo: 'Balance Frecuencial',
     descripcion: 'Corrección de frecuencias para lograr una respuesta plana y fiel en estudios de grabación y mezcla.',
     id: 'balance',
   },
   {
-    imagen: `${base}images/Control_de_Ruido_Industrial.webp`,
+    imagen: `${b}/images/Control_de_Ruido_Industrial.webp`,
     titulo: 'Control de Ruido Industrial',
     descripcion: 'Soluciones de ingeniería acústica para entornos industriales, cumpliendo normativas de seguridad laboral.',
     id: 'ruido',
   },
   {
-    imagen: `${base}images/Medición_y_diseño_acústico.webp`,
+    imagen: `${b}/images/Medición_y_diseño_acústico.webp`,
     titulo: 'Medición y Diseño Acústico',
     descripcion: 'Diagnóstico profesional con equipos de medición calibrados y diseño de soluciones a medida.',
     id: 'medicion',
@@ -47,7 +47,7 @@ const secondRow = preview ? [] : items.slice(3);
   <!-- Fila 1: siempre 3 cards (o menos en preview) -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {firstRow.map((s) => (
-      <a href={`${base}servicios#${s.id}`} class="service-card glass glass-hover block overflow-hidden group">
+      <a href={`${b}/servicios#${s.id}`} class="service-card glass glass-hover block overflow-hidden group">
         <div class="relative overflow-hidden" style="height: 12rem">
           <img
             src={s.imagen}
@@ -75,7 +75,7 @@ const secondRow = preview ? [] : items.slice(3);
   {secondRow.length > 0 && (
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:max-w-[calc(66.666%+12px)] lg:mx-auto">
       {secondRow.map((s) => (
-        <a href={`${base}servicios#${s.id}`} class="service-card glass glass-hover block overflow-hidden group">
+        <a href={`${b}/servicios#${s.id}`} class="service-card glass glass-hover block overflow-hidden group">
           <div class="relative overflow-hidden" style="height: 12rem">
             <img
               src={s.imagen}

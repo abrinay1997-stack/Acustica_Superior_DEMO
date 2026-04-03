@@ -4,9 +4,9 @@ interface Props {
   subtitulo?: string;
   imagen?: string;
 }
-const base = import.meta.env.BASE_URL;
+import { b } from '../utils/base';
 const { titulo, subtitulo, imagen } = Astro.props;
-const imagenSrc = imagen ?? `${base}images/Studio3.webp`;
+const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
 ---
 <section class="relative flex items-end overflow-hidden" style="height: 20rem; padding-bottom: 3rem">
   <div class="absolute inset-0">

@@ -10,7 +10,7 @@ import ContactoForm from '../components/ContactoForm.astro';
   <HeroInterno
     titulo="Contáctanos"
     subtitulo="Cuéntanos sobre tu proyecto y te respondemos en menos de 24 horas."
-    imagen={`${import.meta.env.BASE_URL}images/Studio9.webp`}
+    imagen={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio9.webp`}
   />
 
   <section class="py-20">

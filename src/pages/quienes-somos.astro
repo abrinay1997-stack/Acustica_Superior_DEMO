@@ -16,7 +16,7 @@ const valores = [
   <HeroInterno
     titulo="Quiénes Somos"
     subtitulo="Diseñamos el sonido de tu espacio con precisión técnica y estética superior."
-    imagen={`${import.meta.env.BASE_URL}images/Studio5.webp`}
+    imagen={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio5.webp`}
   />
 
   <section class="py-20">
@@ -33,7 +33,7 @@ const valores = [
         </div>
       </div>
       <div class="relative rounded-2xl overflow-hidden" style="height: 20rem; border: 1px solid rgba(255,255,255,0.08)">
-        <img src={`${import.meta.env.BASE_URL}images/Studio7.webp`} alt="Equipo Acústica Superior" class="w-full h-full object-cover" loading="lazy" />
+        <img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio7.webp`} alt="Equipo Acústica Superior" class="w-full h-full object-cover" loading="lazy" />
       </div>
     </div>
   </section>
