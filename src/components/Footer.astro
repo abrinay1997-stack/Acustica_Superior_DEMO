@@ -6,11 +6,11 @@ import { b } from '../utils/base';
   <!-- Ambient glow -->
   <div style="position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(253,232,23,0.04) 0%,transparent 70%);pointer-events:none"></div>
 
-  <div class="max-w-7xl mx-auto px-6" style="padding-top: 4rem; padding-bottom: 4rem">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+  <div style="max-width:80rem;margin:0 auto;padding:4rem 1.5rem">
+    <div id="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;align-items:start">
 
       <!-- Brand col -->
-      <div class="md:col-span-5">
+      <div>
         <a href={`${b}/`}>
           <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" style="height:2.5rem;width:auto;margin-bottom:1.25rem" />
         </a>
@@ -41,7 +41,7 @@ import { b } from '../utils/base';
       </div>
 
       <!-- Nav col -->
-      <div class="md:col-span-3 md:col-start-7">
+      <div>
         <h4 style="color:white;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem">
           Páginas
         </h4>
@@ -64,7 +64,7 @@ import { b } from '../utils/base';
       </div>
 
       <!-- Contact col -->
-      <div class="md:col-span-3">
+      <div>
         <h4 style="color:white;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem">
           Contacto
         </h4>
@@ -92,7 +92,7 @@ import { b } from '../utils/base';
     </div>
 
     <!-- Bottom bar -->
-    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem">
       <p style="color:rgba(255,255,255,0.3);font-size:0.8125rem">
         © {new Date().getFullYear()} Acústica Superior. Todos los derechos reservados.
       </p>
@@ -102,3 +102,9 @@ import { b } from '../utils/base';
     </div>
   </div>
 </footer>
+
+<style>
+  @media (max-width: 767px) {
+    #footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  }
+</style>
