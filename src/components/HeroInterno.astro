@@ -4,11 +4,13 @@ interface Props {
   subtitulo?: string;
   imagen?: string;
 }
-const { titulo, subtitulo, imagen = '/images/Studio3.webp' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const { titulo, subtitulo, imagen } = Astro.props;
+const imagenSrc = imagen ?? `${base}images/Studio3.webp`;
 ---
 <section class="relative flex items-end overflow-hidden" style="height: 20rem; padding-bottom: 3rem">
   <div class="absolute inset-0">
-    <img src={imagen} alt="" class="w-full h-full object-cover" loading="eager" />
+    <img src={imagenSrc} alt="" class="w-full h-full object-cover" loading="eager" />
     <div class="absolute inset-0" style="background: linear-gradient(to top, #080808 20%, rgba(8,8,8,0.7) 60%, rgba(8,8,8,0.4) 100%)"></div>
   </div>
   <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24">

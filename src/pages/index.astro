@@ -20,14 +20,14 @@ import CTABanner from '../components/CTABanner.astro';
           <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color: #FDE817">Lo que hacemos</p>
           <h2 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem)">Nuestros Servicios</h2>
         </div>
-        <a href="/servicios" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold transition-all" style="color: #FDE817">
+        <a href={`${import.meta.env.BASE_URL}servicios`} class="hidden md:inline-flex items-center gap-2 text-sm font-semibold transition-all" style="color: #FDE817">
           Ver todos →
         </a>
       </div>
     </div>
     <ServiciosGrid preview={true} />
     <div class="text-center mt-8 md:hidden">
-      <a href="/servicios" class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
+      <a href={`${import.meta.env.BASE_URL}servicios`} class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
         Ver todos los servicios →
       </a>
     </div>
@@ -41,7 +41,7 @@ import CTABanner from '../components/CTABanner.astro';
           <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color: #FDE817">Nuestro trabajo</p>
           <h2 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem)">Proyectos Realizados</h2>
         </div>
-        <a href="/proyectos" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold transition-all" style="color: #FDE817">
+        <a href={`${import.meta.env.BASE_URL}proyectos`} class="hidden md:inline-flex items-center gap-2 text-sm font-semibold transition-all" style="color: #FDE817">
           Ver galería completa →
         </a>
       </div>
@@ -49,12 +49,12 @@ import CTABanner from '../components/CTABanner.astro';
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
       {[1, 2, 3, 4].map(n => (
         <a
-          href="/proyectos"
+          href={`${import.meta.env.BASE_URL}proyectos`}
           class="relative overflow-hidden rounded-xl group"
           style="border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 1"
         >
           <img
-            src={`/images/Studio${n}.webp`}
+            src={`${import.meta.env.BASE_URL}images/Studio${n}.webp`}
             alt={`Studio ${n}`}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
@@ -64,7 +64,7 @@ import CTABanner from '../components/CTABanner.astro';
       ))}
     </div>
     <div class="text-center mt-8 md:hidden">
-      <a href="/proyectos" class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
+      <a href={`${import.meta.env.BASE_URL}proyectos`} class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
         Ver galería completa →
       </a>
     </div>
