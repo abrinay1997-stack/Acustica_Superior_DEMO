@@ -3,19 +3,73 @@ interface Props {
   titulo: string;
   subtitulo?: string;
   imagen?: string;
+  breadcrumb?: string;
 }
 import { b } from '../utils/base';
-const { titulo, subtitulo, imagen } = Astro.props;
+const { titulo, subtitulo, imagen, breadcrumb } = Astro.props;
 const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
 ---
-<section class="relative flex items-end overflow-hidden" style="height: 20rem; padding-bottom: 3rem">
+<section class="hero-interno relative overflow-hidden flex items-end" style="height: 60vh; min-height: 400px; max-height: 640px">
+
+  <!-- Background image with layered overlay -->
   <div class="absolute inset-0">
-    <img src={imagenSrc} alt="" class="w-full h-full object-cover" loading="eager" />
-    <div class="absolute inset-0" style="background: linear-gradient(to top, #080808 20%, rgba(8,8,8,0.7) 60%, rgba(8,8,8,0.4) 100%)"></div>
+    <img
+      src={imagenSrc}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="eager"
+      style="transform: scale(1.05)"
+    />
+    <!-- Multi-layer overlay for legibility -->
+    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.75) 40%, rgba(8,8,8,0.35) 80%, rgba(8,8,8,0.25) 100%)"></div>
+    <!-- Accent edge glow at bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent 0%, rgba(253,232,23,0.4) 30%, rgba(253,232,23,0.4) 70%, transparent 100%)"></div>
   </div>
-  <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-24">
-    <div class="w-12 mb-4" style="height: 2px; background: #FDE817"></div>
-    <h1 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem)">{titulo}</h1>
-    {subtitulo && <p class="mt-3 text-lg max-w-2xl" style="color: rgba(255,255,255,0.45)">{subtitulo}</p>}
+
+  <!-- Content positioned in bottom third -->
+  <div class="relative z-10 w-full" style="padding-bottom: 3.5rem">
+    <div style="max-width: 80rem; margin: 0 auto; padding: 0 1.5rem">
+
+      <!-- Breadcrumb -->
+      {breadcrumb && (
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem">
+          <a href={`${b}/`} style="color:rgba(255,255,255,0.4);transition:color 0.2s" onmouseenter="this.style.color='rgba(253,232,23,0.7)'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Inicio</a>
+          <span style="color:rgba(255,255,255,0.2)">›</span>
+          <span style="color:rgba(253,232,23,0.6)">{breadcrumb}</span>
+        </p>
+      )}
+
+      <!-- Accent line -->
+      <div style="width:2.5rem;height:2px;background:linear-gradient(90deg,#FDE817 0%,rgba(253,232,23,0.3) 100%);border-radius:2px;margin-bottom:1.25rem"></div>
+
+      <!-- Title -->
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;line-height:1.05;font-size:clamp(2.25rem,5vw,3.75rem);letter-spacing:-0.02em;margin-bottom:{subtitulo ? '1rem' : '0'}">
+        {titulo}
+      </h1>
+
+      <!-- Subtitle -->
+      {subtitulo && (
+        <p style="font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.55);max-width:36rem;line-height:1.6;margin-top:1rem">
+          {subtitulo}
+        </p>
+      )}
+
+    </div>
   </div>
+
 </section>
+
+<script>
+  import gsap from 'gsap';
+  const heroEl = document.querySelector('.hero-interno');
+  if (heroEl) {
+    gsap.from(heroEl.querySelectorAll('h1, p'), {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: 'power3.out',
+      delay: 0.1,
+    });
+  }
+</script>

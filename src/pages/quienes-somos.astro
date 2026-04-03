@@ -3,10 +3,24 @@ import Layout from '../layouts/Layout.astro';
 import HeroInterno from '../components/HeroInterno.astro';
 import CTABanner from '../components/CTABanner.astro';
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const valores = [
-  { icon: '◈', titulo: 'Precisión Técnica', descripcion: 'Utilizamos metodologías de medición acústica calibradas para garantizar resultados verificables y reproducibles.' },
-  { icon: '◇', titulo: 'Estética Superior', descripcion: 'Diseñamos soluciones que integran la técnica con la estética, mejorando la apariencia de cada espacio.' },
-  { icon: '◆', titulo: 'Funcionalidad Total', descripcion: 'Cada solución está diseñada para el uso real del espacio, priorizando la funcionalidad a largo plazo.' },
+  {
+    titulo: 'Precisión Técnica',
+    descripcion: 'Utilizamos metodologías de medición acústica calibradas para garantizar resultados verificables y reproducibles.',
+    numero: '01',
+  },
+  {
+    titulo: 'Estética Superior',
+    descripcion: 'Diseñamos soluciones que integran la técnica con la estética, mejorando visualmente cada espacio tratado.',
+    numero: '02',
+  },
+  {
+    titulo: 'Funcionalidad Total',
+    descripcion: 'Cada solución está diseñada para el uso real del espacio, priorizando la funcionalidad a largo plazo.',
+    numero: '03',
+  },
 ];
 ---
 <Layout
@@ -15,49 +29,136 @@ const valores = [
 >
   <HeroInterno
     titulo="Quiénes Somos"
-    subtitulo="Diseñamos el sonido de tu espacio con precisión técnica y estética superior."
-    imagen={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio5.webp`}
+    subtitulo="Diseñamos el sonido de tu espacio con precisión técnica y estética de nivel internacional."
+    imagen={`${base}/images/Studio5.webp`}
+    breadcrumb="Quiénes Somos"
   />
 
-  <section class="py-20">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: #FDE817">Nuestra Historia</p>
-        <h2 class="font-black text-white mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem)">
-          Especialistas en acústica<br />con sede en Panamá.
-        </h2>
-        <div class="space-y-4 text-base leading-relaxed" style="color: rgba(255,255,255,0.45)">
-          <p>Acústica Superior nació con la misión de ofrecer soluciones acústicas personalizadas de nivel internacional en el mercado panameño. Combinamos ingeniería de precisión con diseño de interiores para transformar cualquier espacio.</p>
-          <p>Trabajamos con estudios de grabación profesionales, salas de reunión corporativas, espacios de podcasting, y entornos industriales que requieren control de ruido técnico.</p>
-          <p>Cada proyecto comienza con una medición diagnóstica y termina con una solución completamente instalada y verificada, garantizando los resultados prometidos.</p>
+  <!-- Historia section -->
+  <section style="padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center">
+
+        <!-- Texto -->
+        <div>
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.875rem">
+            Nuestra Historia
+          </p>
+          <div style="width:2.5rem;height:2px;background:linear-gradient(90deg,#FDE817,rgba(253,232,23,0.3));border-radius:2px;margin-bottom:1.5rem"></div>
+          <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.875rem,3.5vw,2.75rem);line-height:1.1;letter-spacing:-0.02em;margin-bottom:1.75rem">
+            Especialistas en acústica<br>con sede en Panamá.
+          </h2>
+          <div style="display:flex;flex-direction:column;gap:1.25rem">
+            <p style="font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.55)">
+              Acústica Superior nació con la misión de ofrecer soluciones acústicas personalizadas de nivel internacional en el mercado panameño. Combinamos ingeniería de precisión con diseño de interiores para transformar cualquier espacio.
+            </p>
+            <p style="font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.55)">
+              Trabajamos con estudios de grabación profesionales, salas de reunión corporativas, espacios de podcasting, y entornos industriales que requieren control de ruido técnico.
+            </p>
+            <p style="font-size:1rem;line-height:1.75;color:rgba(255,255,255,0.55)">
+              Cada proyecto comienza con una medición diagnóstica y termina con una solución completamente instalada y verificada, garantizando los resultados prometidos.
+            </p>
+          </div>
+
+          <!-- Mini stats -->
+          <div style="display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08)">
+            <div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:2rem;color:#FDE817">12+</div>
+              <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);margin-top:0.25rem">Proyectos</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.08)"></div>
+            <div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:2rem;color:#FDE817">5</div>
+              <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);margin-top:0.25rem">Servicios</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.08)"></div>
+            <div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:2rem;color:#FDE817">PTY</div>
+              <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);margin-top:0.25rem">Panamá</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="relative rounded-2xl overflow-hidden" style="height: 20rem; border: 1px solid rgba(255,255,255,0.08)">
-        <img src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio7.webp`} alt="Equipo Acústica Superior" class="w-full h-full object-cover" loading="lazy" />
+
+        <!-- Imagen -->
+        <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 40px 80px rgba(0,0,0,0.5)">
+          <img
+            src={`${base}/images/Studio7.webp`}
+            alt="Equipo Acústica Superior"
+            style="width:100%;height:26rem;object-fit:cover;display:block"
+            loading="lazy"
+          />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.5) 0%,transparent 50%)"></div>
+          <!-- Badge sobre imagen -->
+          <div style="position:absolute;bottom:1.25rem;left:1.25rem;background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:0.875rem 1.25rem">
+            <p style="font-size:0.75rem;font-weight:700;color:#FDE817;letter-spacing:0.08em">ACÚSTICA SUPERIOR</p>
+            <p style="font-size:0.8125rem;color:rgba(255,255,255,0.6);margin-top:0.25rem">Panamá, PTY</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <section class="py-20" style="border-top: 1px solid rgba(255,255,255,0.08)">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color: #FDE817">Nuestros Valores</p>
-        <h2 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.25rem)">Lo que nos define</h2>
+  <!-- Valores section -->
+  <section style="padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+
+      <div style="text-align:center;margin-bottom:4rem">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.875rem">
+          Nuestros Valores
+        </p>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.875rem,3vw,2.5rem);letter-spacing:-0.02em">
+          Lo que nos define
+        </h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem">
         {valores.map(v => (
-          <div class="valor-card glass glass-hover p-8 text-center">
-            <div class="text-4xl mb-4" style="color: #FDE817">{v.icon}</div>
-            <h3 class="font-bold text-xl mb-3 text-white" style="font-family: 'Plus Jakarta Sans', sans-serif">{v.titulo}</h3>
-            <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.45)">{v.descripcion}</p>
+          <div
+            class="valor-card"
+            style="position:relative;background:linear-gradient(135deg,rgba(255,255,255,0.07) 0%,rgba(255,255,255,0.03) 100%);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:20px;padding:2.5rem 2rem;text-align:center;transition:border-color 0.3s,transform 0.35s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s;overflow:hidden"
+            onmouseenter="this.style.borderColor='rgba(253,232,23,0.35)';this.style.transform='translateY(-8px)';this.style.boxShadow='0 32px 64px rgba(0,0,0,0.5),0 0 0 1px rgba(253,232,23,0.08)'"
+            onmouseleave="this.style.borderColor='rgba(255,255,255,0.1)';this.style.transform='translateY(0)';this.style.boxShadow='none'"
+          >
+            <!-- Número decorativo de fondo -->
+            <div style="position:absolute;top:-0.5rem;right:1rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:5rem;color:rgba(253,232,23,0.04);line-height:1;pointer-events:none;user-select:none">
+              {v.numero}
+            </div>
+
+            <!-- Accent line centrada -->
+            <div style="width:2.5rem;height:2px;background:#FDE817;border-radius:2px;margin:0 auto 1.5rem"></div>
+
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.25rem;color:white;margin-bottom:1rem;line-height:1.2">
+              {v.titulo}
+            </h3>
+            <p style="font-size:0.9375rem;line-height:1.7;color:rgba(255,255,255,0.5)">
+              {v.descripcion}
+            </p>
           </div>
         ))}
       </div>
+
     </div>
   </section>
 
   <CTABanner />
 </Layout>
+
+<style>
+  @media (max-width: 1023px) {
+    section div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    section div[style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    section div[style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+</style>
 
 <script>
   import gsap from 'gsap';

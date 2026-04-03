@@ -3,9 +3,43 @@ import Layout from '../layouts/Layout.astro';
 import HeroInterno from '../components/HeroInterno.astro';
 import ServiciosGrid from '../components/ServiciosGrid.astro';
 import CTABanner from '../components/CTABanner.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<Layout title="Servicios" description="Servicios de tratamiento acústico profesional en Panamá: adecuación acústica, aislamiento, balance frecuencial, control de ruido y medición acústica.">
-  <HeroInterno titulo="Nuestros Servicios" subtitulo="Soluciones acústicas diseñadas con precisión técnica para cada tipo de espacio." />
-  <section class="py-20"><ServiciosGrid /></section>
+<Layout
+  title="Servicios"
+  description="Servicios de tratamiento acústico profesional en Panamá: adecuación acústica, aislamiento, balance frecuencial, control de ruido y medición acústica."
+>
+  <HeroInterno
+    titulo="Nuestros Servicios"
+    subtitulo="Soluciones acústicas diseñadas con precisión técnica para cada tipo de espacio."
+    imagen={`${base}/images/Studio2.webp`}
+    breadcrumb="Servicios"
+  />
+
+  <!-- Intro row -->
+  <section style="padding: 4rem 0 2rem">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <div>
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.75rem">
+            Nuestras especialidades
+          </p>
+          <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.02em;line-height:1.1">
+            5 áreas de servicio acústico
+          </h2>
+        </div>
+        <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);max-width:28rem;line-height:1.65">
+          Cada servicio incluye diagnóstico, diseño de solución, fabricación e instalación con garantía de resultados.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de servicios -->
+  <section style="padding: 2rem 0 6rem">
+    <ServiciosGrid />
+  </section>
+
   <CTABanner />
 </Layout>

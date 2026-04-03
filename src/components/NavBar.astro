@@ -8,42 +8,89 @@ const links = [
   { href: `${b}/contacto`, label: 'Contacto' },
 ];
 ---
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background:rgba(8,8,8,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)">
-  <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href={`${b}/`} class="flex items-center gap-2">
-      <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" class="h-8 w-auto" />
+<header
+  id="navbar"
+  style="position:fixed;top:0;left:0;right:0;z-index:100;transition:background 0.4s ease,backdrop-filter 0.4s ease,border-color 0.4s ease;background:rgba(8,8,8,0.5);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,0.06)"
+>
+  <nav style="max-width:80rem;margin:0 auto;padding:0 1.5rem;height:4.5rem;display:flex;align-items:center;justify-content:space-between">
+
+    <!-- Logo -->
+    <a href={`${b}/`} style="display:flex;align-items:center;gap:0.625rem;flex-shrink:0">
+      <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" style="height:2.25rem;width:auto" />
     </a>
-    <ul class="hidden md:flex items-center gap-8">
+
+    <!-- Desktop nav -->
+    <ul id="desktop-nav" style="display:flex;align-items:center;gap:2rem;list-style:none;margin:0;padding:0">
       {links.map(link => (
         <li>
-          <a href={link.href} class="text-sm font-medium hover:text-white transition-colors duration-200 relative group" style="color: rgba(255,255,255,0.6)">
+          <a
+            href={link.href}
+            style="font-size:0.875rem;font-weight:500;color:rgba(255,255,255,0.6);transition:color 0.2s;position:relative;padding-bottom:2px;display:inline-block"
+            onmouseenter="this.style.color='rgba(255,255,255,1)'"
+            onmouseleave="this.style.color='rgba(255,255,255,0.6)'"
+          >
             {link.label}
-            <span class="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300" style="background:#FDE817"></span>
+            <span
+              style="position:absolute;bottom:-1px;left:0;width:0;height:1px;background:#FDE817;transition:width 0.3s ease;border-radius:1px"
+              class="nav-underline"
+            ></span>
           </a>
         </li>
       ))}
     </ul>
-    <a href="https://wa.me/50761399247" target="_blank" rel="noopener"
-      class="hidden md:inline-flex items-center gap-2 font-bold px-5 py-2 rounded text-sm text-black transition-all hover:shadow-lg"
-      style="background: #FDE817; box-shadow: 0 0 20px rgba(253,232,23,0.2)">
+
+    <!-- CTA button -->
+    <a
+      href="https://wa.me/50761399247"
+      target="_blank"
+      rel="noopener"
+      id="nav-cta"
+      style="display:none;align-items:center;gap:0.5rem;font-size:0.8125rem;font-weight:700;color:#080808;background:#FDE817;padding:0.625rem 1.375rem;border-radius:6px;transition:filter 0.2s,transform 0.2s,box-shadow 0.2s;white-space:nowrap;box-shadow:0 0 20px rgba(253,232,23,0.2)"
+      onmouseenter="this.style.filter='brightness(1.08)';this.style.transform='translateY(-1px)';this.style.boxShadow='0 6px 24px rgba(253,232,23,0.35)'"
+      onmouseleave="this.style.filter='brightness(1)';this.style.transform='translateY(0)';this.style.boxShadow='0 0 20px rgba(253,232,23,0.2)'"
+    >
       Cotizar
     </a>
-    <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú">
-      <span class="w-6 h-0.5 bg-white block"></span>
-      <span class="w-6 h-0.5 bg-white block"></span>
-      <span class="w-6 h-0.5 bg-white block"></span>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      aria-label="Abrir menú"
+      style="display:none;flex-direction:column;gap:5px;padding:0.5rem;background:none;border:none;cursor:pointer"
+    >
+      <span style="width:22px;height:1.5px;background:white;display:block;border-radius:2px;transition:transform 0.3s,opacity 0.3s" id="bar1"></span>
+      <span style="width:22px;height:1.5px;background:white;display:block;border-radius:2px;transition:opacity 0.3s" id="bar2"></span>
+      <span style="width:22px;height:1.5px;background:white;display:block;border-radius:2px;transition:transform 0.3s,opacity 0.3s" id="bar3"></span>
     </button>
+
   </nav>
-  <div id="mobile-menu" class="hidden md:hidden mx-4 mb-4 p-6 glass">
-    <ul class="flex flex-col gap-4">
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    style="display:none;margin:0 1rem 1rem;padding:1.5rem;background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-radius:16px"
+  >
+    <ul style="display:flex;flex-direction:column;gap:1rem;list-style:none;margin:0;padding:0">
       {links.map(link => (
-        <li><a href={link.href} class="text-white text-base font-medium block">{link.label}</a></li>
+        <li>
+          <a
+            href={link.href}
+            style="font-size:1rem;font-weight:500;color:rgba(255,255,255,0.75);display:block;padding:0.375rem 0;transition:color 0.2s"
+            onmouseenter="this.style.color='white'"
+            onmouseleave="this.style.color='rgba(255,255,255,0.75)'"
+          >
+            {link.label}
+          </a>
+        </li>
       ))}
-      <li>
-        <a href="https://wa.me/50761399247" target="_blank"
-          class="inline-flex font-bold px-5 py-2 rounded text-sm text-black"
-          style="background: #FDE817">
-          Cotizar por WhatsApp
+      <li style="margin-top:0.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.08)">
+        <a
+          href="https://wa.me/50761399247"
+          target="_blank"
+          rel="noopener"
+          style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.875rem;font-weight:700;color:#080808;background:#FDE817;padding:0.75rem 1.5rem;border-radius:6px"
+        >
+          Cotizar por WhatsApp →
         </a>
       </li>
     </ul>
@@ -51,19 +98,54 @@ const links = [
 </header>
 
 <script>
+  // Scroll effect
   const navbar = document.getElementById('navbar')!;
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      navbar.style.background = 'rgba(8,8,8,0.85)';
-      navbar.style.backdropFilter = 'blur(12px)';
-      navbar.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+  const updateNavbar = () => {
+    if (window.scrollY > 60) {
+      navbar.style.background = 'rgba(8,8,8,0.92)';
+      navbar.style.borderBottomColor = 'rgba(255,255,255,0.08)';
     } else {
-      navbar.style.background = 'transparent';
-      navbar.style.backdropFilter = 'none';
-      navbar.style.borderBottom = 'none';
+      navbar.style.background = 'rgba(8,8,8,0.5)';
+      navbar.style.borderBottomColor = 'rgba(255,255,255,0.06)';
+    }
+  };
+  window.addEventListener('scroll', updateNavbar, { passive: true });
+
+  // Nav underline hover
+  document.querySelectorAll('#desktop-nav a').forEach(a => {
+    const underline = a.querySelector('.nav-underline') as HTMLElement | null;
+    if (underline) {
+      a.addEventListener('mouseenter', () => { underline.style.width = '100%'; });
+      a.addEventListener('mouseleave', () => { underline.style.width = '0'; });
     }
   });
+
+  // Responsive: show/hide elements
+  const applyResponsive = () => {
+    const desktopNav = document.getElementById('desktop-nav')!;
+    const navCta = document.getElementById('nav-cta')!;
+    const menuToggle = document.getElementById('menu-toggle')!;
+    const isDesktop = window.innerWidth >= 768;
+    desktopNav.style.display = isDesktop ? 'flex' : 'none';
+    navCta.style.display = isDesktop ? 'flex' : 'none';
+    menuToggle.style.display = isDesktop ? 'none' : 'flex';
+  };
+  applyResponsive();
+  window.addEventListener('resize', applyResponsive);
+
+  // Mobile toggle
   const toggle = document.getElementById('menu-toggle')!;
   const mobileMenu = document.getElementById('mobile-menu')!;
-  toggle.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+
+  let menuOpen = false;
+  toggle.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.style.display = menuOpen ? 'block' : 'none';
+    bar1.style.transform = menuOpen ? 'rotate(45deg) translate(5px, 5px)' : '';
+    bar2.style.opacity = menuOpen ? '0' : '1';
+    bar3.style.transform = menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : '';
+  });
 </script>

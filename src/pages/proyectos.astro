@@ -3,9 +3,38 @@ import Layout from '../layouts/Layout.astro';
 import HeroInterno from '../components/HeroInterno.astro';
 import ProyectosMasonry from '../components/ProyectosMasonry.astro';
 import CTABanner from '../components/CTABanner.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
-<Layout title="Proyectos" description="Proyectos de tratamiento acústico realizados por Acústica Superior en Panamá: estudios de grabación, salas corporativas y espacios industriales.">
-  <HeroInterno titulo="Nuestros Proyectos" subtitulo="Cada espacio tiene su propia acústica. Aquí están algunas de nuestras transformaciones." imagen={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio3.webp`} />
+<Layout
+  title="Proyectos"
+  description="Proyectos de tratamiento acústico realizados por Acústica Superior en Panamá: estudios de grabación, salas corporativas y espacios industriales."
+>
+  <HeroInterno
+    titulo="Nuestros Proyectos"
+    subtitulo="Cada espacio tiene su propia acústica. Aquí están algunas de nuestras transformaciones realizadas en Panamá."
+    imagen={`${base}/images/Studio3.webp`}
+    breadcrumb="Proyectos"
+  />
+
+  <!-- Intro row -->
+  <section style="padding: 4rem 0 2rem">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div>
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.75rem">
+          Portafolio
+        </p>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.02em;line-height:1.1">
+          Galería de proyectos
+        </h2>
+      </div>
+      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);max-width:28rem;line-height:1.65">
+        Haz clic en cualquier imagen para verla en detalle. Cada proyecto es una transformación acústica completa.
+      </p>
+    </div>
+  </section>
+
   <ProyectosMasonry />
+
   <CTABanner />
 </Layout>
