@@ -1,33 +1,104 @@
 ---
 import { b } from '../utils/base';
 ---
-<footer style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 5rem;">
-  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-    <div>
-      <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" class="h-10 w-auto mb-4" />
-      <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.45)">
-        Soluciones acústicas profesionales para estudios, oficinas y espacios industriales en Panamá.
+<footer style="margin-top: 6rem; border-top: 1px solid rgba(255,255,255,0.08); position: relative; overflow: hidden">
+
+  <!-- Ambient glow -->
+  <div style="position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(253,232,23,0.04) 0%,transparent 70%);pointer-events:none"></div>
+
+  <div class="max-w-7xl mx-auto px-6" style="padding-top: 4rem; padding-bottom: 4rem">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+
+      <!-- Brand col -->
+      <div class="md:col-span-5">
+        <a href={`${b}/`}>
+          <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" style="height:2.5rem;width:auto;margin-bottom:1.25rem" />
+        </a>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.9375rem;line-height:1.75;max-width:22rem">
+          Soluciones acústicas profesionales para estudios, oficinas y espacios industriales en Panamá. Precisión técnica con estética superior.
+        </p>
+        <!-- Social links -->
+        <div style="display:flex;gap:0.75rem;margin-top:1.75rem">
+          <a href="https://www.instagram.com/acusticasuperior/" target="_blank" rel="noopener"
+            style="width:2.5rem;height:2.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:0.875rem;transition:all 0.2s"
+            onmouseenter="this.style.borderColor='rgba(253,232,23,0.4)';this.style.color='#FDE817'"
+            onmouseleave="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.6)'">
+            IG
+          </a>
+          <a href="https://www.facebook.com/acusticasuperior" target="_blank" rel="noopener"
+            style="width:2.5rem;height:2.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:0.875rem;transition:all 0.2s"
+            onmouseenter="this.style.borderColor='rgba(253,232,23,0.4)';this.style.color='#FDE817'"
+            onmouseleave="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.6)'">
+            FB
+          </a>
+          <a href="https://wa.me/50761399247" target="_blank" rel="noopener"
+            style="width:2.5rem;height:2.5rem;border-radius:8px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:0.875rem;transition:all 0.2s"
+            onmouseenter="this.style.borderColor='rgba(37,211,102,0.4)';this.style.color='#25d366'"
+            onmouseleave="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.6)'">
+            WA
+          </a>
+        </div>
+      </div>
+
+      <!-- Nav col -->
+      <div class="md:col-span-3 md:col-start-7">
+        <h4 style="color:white;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem">
+          Páginas
+        </h4>
+        <ul style="display:flex;flex-direction:column;gap:0.75rem">
+          {[
+            { href: `${b}/quienes-somos`, label: 'Quiénes Somos' },
+            { href: `${b}/servicios`, label: 'Servicios' },
+            { href: `${b}/proyectos`, label: 'Proyectos' },
+            { href: `${b}/contacto`, label: 'Contacto' },
+          ].map(link => (
+            <li>
+              <a href={link.href} style="color:rgba(255,255,255,0.5);font-size:0.9375rem;transition:color 0.2s"
+                onmouseenter="this.style.color='#FDE817'"
+                onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact col -->
+      <div class="md:col-span-3">
+        <h4 style="color:white;font-weight:700;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem">
+          Contacto
+        </h4>
+        <ul style="display:flex;flex-direction:column;gap:0.875rem">
+          <li>
+            <a href="https://wa.me/50761399247" target="_blank" rel="noopener"
+              style="color:rgba(255,255,255,0.5);font-size:0.9375rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s"
+              onmouseenter="this.style.color='#25d366'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
+              <span style="color:#25d366;font-size:1rem">●</span> +507 6139 9247
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/acusticasuperior/" target="_blank" rel="noopener"
+              style="color:rgba(255,255,255,0.5);font-size:0.9375rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s"
+              onmouseenter="this.style.color='white'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
+              <span style="color:rgba(255,255,255,0.3);font-size:1rem">@</span> acusticasuperior
+            </a>
+          </li>
+          <li style="color:rgba(255,255,255,0.5);font-size:0.9375rem;display:flex;align-items:center;gap:0.5rem">
+            <span style="color:rgba(253,232,23,0.6);font-size:0.875rem">◆</span> Panamá, PTY
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <p style="color:rgba(255,255,255,0.3);font-size:0.8125rem">
+        © {new Date().getFullYear()} Acústica Superior. Todos los derechos reservados.
+      </p>
+      <p style="color:rgba(255,255,255,0.2);font-size:0.8125rem">
+        Panamá, República de Panamá
       </p>
     </div>
-    <div>
-      <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Páginas</h3>
-      <ul class="flex flex-col gap-2 text-sm" style="color: rgba(255,255,255,0.45)">
-        <li><a href={`${b}/quienes-somos`} class="hover:text-white transition-colors">Quiénes Somos</a></li>
-        <li><a href={`${b}/servicios`} class="hover:text-white transition-colors">Servicios</a></li>
-        <li><a href={`${b}/proyectos`} class="hover:text-white transition-colors">Proyectos</a></li>
-        <li><a href={`${b}/contacto`} class="hover:text-white transition-colors">Contacto</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Contacto</h3>
-      <ul class="flex flex-col gap-3 text-sm">
-        <li><a href="https://wa.me/50761399247" target="_blank" rel="noopener" class="hover:text-yellow-300 transition-colors" style="color: rgba(255,255,255,0.45)">WhatsApp: +507 6139 9247</a></li>
-        <li><a href="https://www.instagram.com/acusticasuperior/" target="_blank" rel="noopener" class="hover:text-yellow-300 transition-colors" style="color: rgba(255,255,255,0.45)">@acusticasuperior</a></li>
-        <li><a href="https://www.facebook.com/acusticasuperior" target="_blank" rel="noopener" class="hover:text-yellow-300 transition-colors" style="color: rgba(255,255,255,0.45)">Facebook</a></li>
-      </ul>
-    </div>
-  </div>
-  <div style="border-top: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.45)" class="px-6 py-4 text-center text-xs">
-    © {new Date().getFullYear()} Acústica Superior. Todos los derechos reservados.
   </div>
 </footer>

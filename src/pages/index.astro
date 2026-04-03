@@ -4,6 +4,8 @@ import Hero from '../components/Hero.astro';
 import StatsStrip from '../components/StatsStrip.astro';
 import ServiciosGrid from '../components/ServiciosGrid.astro';
 import CTABanner from '../components/CTABanner.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Layout
   title="Inicio"
@@ -12,61 +14,68 @@ import CTABanner from '../components/CTABanner.astro';
   <Hero />
   <StatsStrip />
 
-  <!-- Sección Preview Servicios -->
-  <section class="py-20">
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-      <div class="flex items-end justify-between">
+  <!-- Servicios preview -->
+  <section style="padding: 6rem 0">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color: #FDE817">Lo que hacemos</p>
-          <h2 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem)">Nuestros Servicios</h2>
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.75rem">
+            Lo que hacemos
+          </p>
+          <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.15">
+            Nuestros Servicios
+          </h2>
         </div>
-        <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/servicios`} class="hidden md:inline-flex items-center gap-2 text-sm font-semibold transition-all" style="color: #FDE817">
+        <a href={`${base}/servicios`} style="color:#FDE817;font-size:0.9375rem;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s"
+          onmouseenter="this.style.gap='0.75rem'" onmouseleave="this.style.gap='0.5rem'">
           Ver todos →
         </a>
       </div>
-    </div>
-    <ServiciosGrid preview={true} />
-    <div class="text-center mt-8 md:hidden">
-      <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/servicios`} class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
-        Ver todos los servicios →
-      </a>
+
+      <ServiciosGrid preview={true} />
+
     </div>
   </section>
 
-  <!-- Sección Preview Proyectos -->
-  <section class="py-20" style="border-top: 1px solid rgba(255,255,255,0.08)">
-    <div class="max-w-7xl mx-auto px-6 mb-12">
-      <div class="flex items-end justify-between">
+  <!-- Proyectos preview -->
+  <section style="padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.06)">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color: #FDE817">Nuestro trabajo</p>
-          <h2 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem)">Proyectos Realizados</h2>
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.75rem">
+            Nuestro trabajo
+          </p>
+          <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.15">
+            Proyectos Realizados
+          </h2>
         </div>
-        <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/proyectos`} class="hidden md:inline-flex items-center gap-2 text-sm font-semibold transition-all" style="color: #FDE817">
+        <a href={`${base}/proyectos`} style="color:#FDE817;font-size:0.9375rem;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;transition:gap 0.2s"
+          onmouseenter="this.style.gap='0.75rem'" onmouseleave="this.style.gap='0.5rem'">
           Ver galería completa →
         </a>
       </div>
-    </div>
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-      {[1, 2, 3, 4].map(n => (
-        <a
-          href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/proyectos`}
-          class="relative overflow-hidden rounded-xl group"
-          style="border: 1px solid rgba(255,255,255,0.08); aspect-ratio: 1"
-        >
-          <img
-            src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio${n}.webp`}
-            alt={`Studio ${n}`}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300"></div>
-        </a>
-      ))}
-    </div>
-    <div class="text-center mt-8 md:hidden">
-      <a href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/proyectos`} class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-2 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
-        Ver galería completa →
-      </a>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem">
+        {[1, 2, 3, 4].map(n => (
+          <a
+            href={`${base}/proyectos`}
+            style="position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,0.08);aspect-ratio:16/10;display:block;transition:border-color 0.3s,transform 0.3s"
+            onmouseenter="this.style.borderColor='rgba(253,232,23,0.3)';this.style.transform='scale(1.01)'"
+            onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='scale(1)'"
+          >
+            <img
+              src={`${base}/images/Studio${n}.webp`}
+              alt={`Studio ${n}`}
+              style="width:100%;height:100%;object-fit:cover;transition:transform 0.6s"
+              loading="lazy"
+            />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.5) 0%,transparent 50%)"></div>
+          </a>
+        ))}
+      </div>
+
     </div>
   </section>
 

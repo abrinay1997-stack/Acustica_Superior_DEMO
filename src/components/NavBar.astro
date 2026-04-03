@@ -8,7 +8,7 @@ const links = [
   { href: `${b}/contacto`, label: 'Contacto' },
 ];
 ---
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background:rgba(8,8,8,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06)">
   <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
     <a href={`${b}/`} class="flex items-center gap-2">
       <img src={`${b}/Logo/LOGO.webp`} alt="Acústica Superior" class="h-8 w-auto" />
@@ -16,15 +16,16 @@ const links = [
     <ul class="hidden md:flex items-center gap-8">
       {links.map(link => (
         <li>
-          <a href={link.href} class="text-sm hover:text-white transition-colors duration-200" style="color: rgba(255,255,255,0.45)">
+          <a href={link.href} class="text-sm font-medium hover:text-white transition-colors duration-200 relative group" style="color: rgba(255,255,255,0.6)">
             {link.label}
+            <span class="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300" style="background:#FDE817"></span>
           </a>
         </li>
       ))}
     </ul>
     <a href="https://wa.me/50761399247" target="_blank" rel="noopener"
-      class="hidden md:inline-flex items-center gap-2 font-bold px-5 py-2 rounded hover:brightness-110 transition-all text-sm text-black"
-      style="background: #FDE817">
+      class="hidden md:inline-flex items-center gap-2 font-bold px-5 py-2 rounded text-sm text-black transition-all hover:shadow-lg"
+      style="background: #FDE817; box-shadow: 0 0 20px rgba(253,232,23,0.2)">
       Cotizar
     </a>
     <button id="menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú">

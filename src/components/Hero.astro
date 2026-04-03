@@ -2,36 +2,68 @@
 import { b } from '../utils/base';
 ---
 <section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-16">
-  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(253,232,23,0.04) 0%, transparent 70%)"></div>
+
+  <!-- Ambient glow blobs -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div style="position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(253,232,23,0.07) 0%,transparent 65%);top:-200px;left:-150px"></div>
+    <div style="position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(253,232,23,0.05) 0%,transparent 65%);bottom:-100px;right:-50px"></div>
+    <div style="position:absolute;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,0.03) 0%,transparent 70%);top:30%;left:40%"></div>
+  </div>
+
+  <!-- Subtle grid overlay -->
+  <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%)"></div>
+
   <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
     <div class="hero-content">
-      <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-6 px-3 py-1 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
+      <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-6 px-3 py-1 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25); background: rgba(253,232,23,0.05)">
         Tratamiento Acústico Profesional · Panamá
       </span>
-      <h1 class="font-black leading-[1.05] mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); color: white">
+      <h1 class="font-black leading-[1.05] mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); color: white">
         Transformamos<br>
-        <span style="color: #FDE817">Espacios en</span><br>
+        <span class="text-gradient">Espacios en</span><br>
         Sonido.
       </h1>
-      <p class="text-lg leading-relaxed mb-8 max-w-lg" style="color: rgba(255,255,255,0.45)">
+      <p class="text-lg leading-relaxed mb-10 max-w-lg" style="color: rgba(255,255,255,0.55)">
         Diseño acústico personalizado para estudios de grabación, salas de reunión y espacios corporativos. Precisión técnica con estética superior.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="https://wa.me/50761399247?text=Hola,%20quiero%20una%20cotización" target="_blank" rel="noopener"
-          class="inline-flex items-center gap-2 font-bold px-7 py-3 rounded hover:brightness-110 transition-all text-black"
-          style="background: #FDE817">
-          Solicitar Cotización
+        <a href="https://wa.me/50761399247?text=Hola,%20quiero%20una%20cotización" target="_blank" rel="noopener" class="btn-primary text-base">
+          Solicitar Cotización →
         </a>
         <a href={`${b}/proyectos`}
-          class="inline-flex items-center gap-2 text-white px-7 py-3 rounded hover:brightness-110 transition-all"
-          style="border: 1px solid rgba(255,255,255,0.08)">
+          class="inline-flex items-center gap-2 text-white px-7 py-3 rounded font-semibold transition-all hover:border-white/30"
+          style="border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03)">
           Ver Proyectos ↓
         </a>
       </div>
+
+      <!-- Social proof mini -->
+      <div class="mt-12 flex items-center gap-6" style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem">
+        <div class="text-center">
+          <div class="font-black text-2xl" style="color:#FDE817; font-family:'Plus Jakarta Sans',sans-serif">12+</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Proyectos</div>
+        </div>
+        <div style="width:1px;height:2.5rem;background:rgba(255,255,255,0.1)"></div>
+        <div class="text-center">
+          <div class="font-black text-2xl" style="color:#FDE817; font-family:'Plus Jakarta Sans',sans-serif">5</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Servicios</div>
+        </div>
+        <div style="width:1px;height:2.5rem;background:rgba(255,255,255,0.1)"></div>
+        <div class="text-center">
+          <div class="font-black text-2xl" style="color:#FDE817; font-family:'Plus Jakarta Sans',sans-serif">100%</div>
+          <div class="text-xs mt-0.5" style="color:rgba(255,255,255,0.4)">Garantizado</div>
+        </div>
+      </div>
     </div>
-    <div id="hero-image" class="hidden lg:block relative rounded-2xl overflow-hidden" style="height: 520px; border: 1px solid rgba(255,255,255,0.08)">
+
+    <div id="hero-image" class="hidden lg:block relative rounded-2xl overflow-hidden" style="height: 560px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08)">
       <img src={`${b}/images/Studio1.webp`} alt="Proyecto acústico — estudio profesional" class="w-full h-full object-cover" loading="eager" />
-      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,8,0.6) 0%, transparent 60%)"></div>
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,8,0.7) 0%, transparent 50%)"></div>
+      <!-- Corner label -->
+      <div class="absolute bottom-4 left-4 glass px-4 py-2">
+        <p class="text-xs font-semibold" style="color: rgba(255,255,255,0.7)">Estudio Profesional</p>
+        <p class="text-xs" style="color: rgba(255,255,255,0.4)">Panamá, PTY</p>
+      </div>
     </div>
   </div>
 </section>
@@ -55,9 +87,9 @@ import { b } from '../utils/base';
   gsap.from('.hero-content > *', {
     y: 30,
     opacity: 0,
-    duration: 0.8,
+    duration: 0.9,
     stagger: 0.15,
-    ease: 'power2.out',
-    delay: 0.3,
+    ease: 'power3.out',
+    delay: 0.2,
   });
 </script>
