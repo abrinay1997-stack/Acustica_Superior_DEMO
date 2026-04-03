@@ -1,0 +1,1 @@
+import{g as r}from"./index.DDlvirwQ.js";import{S as o}from"./ScrollTrigger.CB6UHAJl.js";r.registerPlugin(o);r.from(".valor-card",{y:40,opacity:0,stagger:.15,duration:.7,ease:"power2.out",scrollTrigger:{trigger:".valor-card",start:"top 85%"}});

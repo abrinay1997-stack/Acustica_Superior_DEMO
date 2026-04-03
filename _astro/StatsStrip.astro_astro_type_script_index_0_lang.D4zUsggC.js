@@ -1,0 +1,1 @@
+import{g as r}from"./index.DDlvirwQ.js";import{S as t}from"./ScrollTrigger.CB6UHAJl.js";r.registerPlugin(t);r.from(".stats-item",{y:20,opacity:0,stagger:.1,duration:.6,ease:"power2.out",scrollTrigger:{trigger:".stats-item",start:"top 85%"}});

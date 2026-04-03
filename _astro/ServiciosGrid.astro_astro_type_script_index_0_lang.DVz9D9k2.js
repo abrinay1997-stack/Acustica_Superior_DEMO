@@ -1,0 +1,1 @@
+import{g as r}from"./index.DDlvirwQ.js";import{S as i}from"./ScrollTrigger.CB6UHAJl.js";r.registerPlugin(i);r.from(".service-card",{y:40,opacity:0,stagger:.1,duration:.7,ease:"power2.out",scrollTrigger:{trigger:"#servicios-grid",start:"top 85%"}});
