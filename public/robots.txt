@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Actualizar esta URL con el dominio de producción final
+Sitemap: https://acusticasuperior.netlify.app/sitemap-index.xml

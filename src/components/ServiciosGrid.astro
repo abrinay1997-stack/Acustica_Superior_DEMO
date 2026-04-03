@@ -1,0 +1,119 @@
+---
+interface Props {
+  preview?: boolean;
+}
+const { preview = false } = Astro.props;
+
+const servicios = [
+  {
+    imagen: '/images/Adecuación_acustica.webp',
+    titulo: 'Adecuación Acústica',
+    descripcion: 'Optimizamos el comportamiento sonoro de tu espacio interior mediante análisis y tratamiento personalizado.',
+    id: 'adecuacion',
+  },
+  {
+    imagen: '/images/Aislamiento_y_bloqueo_acustico.webp',
+    titulo: 'Aislamiento y Bloqueo Acústico',
+    descripcion: 'Barreras técnicas que controlan la transmisión de sonido entre ambientes para máxima privacidad.',
+    id: 'aislamiento',
+  },
+  {
+    imagen: '/images/Balance_frecuencial.webp',
+    titulo: 'Balance Frecuencial',
+    descripcion: 'Corrección de frecuencias para lograr una respuesta plana y fiel en estudios de grabación y mezcla.',
+    id: 'balance',
+  },
+  {
+    imagen: '/images/Control_de_Ruido_Industrial.webp',
+    titulo: 'Control de Ruido Industrial',
+    descripcion: 'Soluciones de ingeniería acústica para entornos industriales, cumpliendo normativas de seguridad laboral.',
+    id: 'ruido',
+  },
+  {
+    imagen: '/images/Medición_y_diseño_acústico.webp',
+    titulo: 'Medición y Diseño Acústico',
+    descripcion: 'Diagnóstico profesional con equipos de medición calibrados y diseño de soluciones a medida.',
+    id: 'medicion',
+  },
+];
+
+const items = preview ? servicios.slice(0, 3) : servicios;
+const firstRow = preview ? items : items.slice(0, 3);
+const secondRow = preview ? [] : items.slice(3);
+---
+
+<div class="max-w-7xl mx-auto px-6">
+  <!-- Fila 1: siempre 3 cards (o menos en preview) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {firstRow.map((s) => (
+      <a href={`/servicios#${s.id}`} class="service-card glass glass-hover block overflow-hidden group">
+        <div class="relative overflow-hidden" style="height: 12rem">
+          <img
+            src={s.imagen}
+            alt={s.titulo}
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 60%)"></div>
+        </div>
+        <div class="p-6">
+          <div class="w-8 mb-3" style="height: 2px; background: #FDE817"></div>
+          <h3 class="font-bold text-lg mb-2 text-white transition-colors group-hover:text-yellow-300" style="font-family: 'Plus Jakarta Sans', sans-serif">
+            {s.titulo}
+          </h3>
+          <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.45)">{s.descripcion}</p>
+          <div class="mt-4 text-sm font-semibold flex items-center gap-1" style="color: #FDE817">
+            Ver más <span class="group-hover:translate-x-1 transition-transform inline-block">→</span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- Fila 2: últimos 2 cards centrados en desktop (solo en vista completa) -->
+  {secondRow.length > 0 && (
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 lg:max-w-[calc(66.666%+12px)] lg:mx-auto">
+      {secondRow.map((s) => (
+        <a href={`/servicios#${s.id}`} class="service-card glass glass-hover block overflow-hidden group">
+          <div class="relative overflow-hidden" style="height: 12rem">
+            <img
+              src={s.imagen}
+              alt={s.titulo}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 60%)"></div>
+          </div>
+          <div class="p-6">
+            <div class="w-8 mb-3" style="height: 2px; background: #FDE817"></div>
+            <h3 class="font-bold text-lg mb-2 text-white transition-colors group-hover:text-yellow-300" style="font-family: 'Plus Jakarta Sans', sans-serif">
+              {s.titulo}
+            </h3>
+            <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.45)">{s.descripcion}</p>
+            <div class="mt-4 text-sm font-semibold flex items-center gap-1" style="color: #FDE817">
+              Ver más <span class="group-hover:translate-x-1 transition-transform inline-block">→</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.service-card', {
+    y: 40,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.7,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#servicios-grid',
+      start: 'top 85%',
+    },
+  });
+</script>

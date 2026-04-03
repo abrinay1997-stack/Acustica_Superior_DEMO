@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroInterno from '../components/HeroInterno.astro';
+import ContactoForm from '../components/ContactoForm.astro';
+---
+<Layout
+  title="Contacto"
+  description="Contacta a Acústica Superior para solicitar una cotización de tratamiento acústico en Panamá. WhatsApp, Instagram y formulario de contacto."
+>
+  <HeroInterno
+    titulo="Contáctanos"
+    subtitulo="Cuéntanos sobre tu proyecto y te respondemos en menos de 24 horas."
+    imagen="/images/Studio9.webp"
+  />
+
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div>
+        <h2 class="font-black text-white mb-8" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.75rem">Envíanos un mensaje</h2>
+        <ContactoForm />
+      </div>
+      <div>
+        <h2 class="font-black text-white mb-8" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.75rem">O encuéntranos aquí</h2>
+        <div class="space-y-4">
+          <a href="https://wa.me/50761399247" target="_blank" rel="noopener" class="flex items-start gap-4 glass glass-hover p-5 group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg" style="background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.2)">📱</div>
+            <div>
+              <div class="font-semibold mb-1 text-white group-hover:text-yellow-300 transition-colors">WhatsApp</div>
+              <div class="text-sm" style="color: rgba(255,255,255,0.45)">+507 6139 9247</div>
+              <div class="text-xs mt-1" style="color: rgba(255,255,255,0.3)">Respuesta rápida · Lunes a Sábado</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/acusticasuperior/" target="_blank" rel="noopener" class="flex items-start gap-4 glass glass-hover p-5 group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg" style="background: rgba(253,232,23,0.05); border: 1px solid rgba(253,232,23,0.2)">📷</div>
+            <div>
+              <div class="font-semibold mb-1 text-white group-hover:text-yellow-300 transition-colors">Instagram</div>
+              <div class="text-sm" style="color: rgba(255,255,255,0.45)">@acusticasuperior</div>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/acusticasuperior" target="_blank" rel="noopener" class="flex items-start gap-4 glass glass-hover p-5 group">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-lg" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08)">💬</div>
+            <div>
+              <div class="font-semibold mb-1 text-white group-hover:text-yellow-300 transition-colors">Facebook</div>
+              <div class="text-sm" style="color: rgba(255,255,255,0.45)">Acústica Superior</div>
+            </div>
+          </a>
+          <div class="glass p-5">
+            <div class="text-sm font-semibold mb-2" style="color: #FDE817">📍 Ubicación</div>
+            <div class="text-sm" style="color: rgba(255,255,255,0.45)">Panamá, República de Panamá</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

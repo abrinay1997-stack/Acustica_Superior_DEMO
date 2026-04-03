@@ -1,0 +1,36 @@
+---
+const stats = [
+  { value: '12+', label: 'Proyectos Completados' },
+  { value: '5',   label: 'Servicios Especializados' },
+  { value: '100%', label: 'Soluciones Personalizadas' },
+  { value: 'PTY', label: 'Panamá' },
+];
+---
+<section style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 2rem 0; background: rgba(255,255,255,0.03)">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    {stats.map(stat => (
+      <div class="stats-item">
+        <div class="font-black mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.875rem; color: #FDE817">{stat.value}</div>
+        <div class="text-sm" style="color: rgba(255,255,255,0.45)">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.stats-item', {
+    y: 20,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.6,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.stats-item',
+      start: 'top 85%',
+    }
+  });
+</script>

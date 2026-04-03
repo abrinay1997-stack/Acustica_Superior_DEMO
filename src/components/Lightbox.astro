@@ -1,0 +1,78 @@
+---
+---
+<div
+  id="lightbox"
+  class="fixed inset-0 z-[100] items-center justify-center hidden"
+  style="background: rgba(0,0,0,0.95)"
+  role="dialog"
+  aria-modal="true"
+>
+  <button id="lightbox-close" class="absolute top-6 right-6 text-3xl leading-none transition-colors" style="color: rgba(255,255,255,0.6)" aria-label="Cerrar">×</button>
+  <button id="lightbox-prev" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all text-white" style="border: 1px solid rgba(255,255,255,0.2)" aria-label="Anterior">←</button>
+  <img id="lightbox-img" src="" alt="" class="rounded-lg object-contain" style="max-width: 90vw; max-height: 85vh" />
+  <button id="lightbox-next" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center transition-all text-white" style="border: 1px solid rgba(255,255,255,0.2)" aria-label="Siguiente">→</button>
+  <div id="lightbox-counter" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm" style="color: rgba(255,255,255,0.5)"></div>
+</div>
+
+<script>
+  import gsap from 'gsap';
+
+  const lightbox = document.getElementById('lightbox')!;
+  const img = document.getElementById('lightbox-img') as HTMLImageElement;
+  const counter = document.getElementById('lightbox-counter')!;
+  const prevBtn = document.getElementById('lightbox-prev')!;
+  const nextBtn = document.getElementById('lightbox-next')!;
+  const closeBtn = document.getElementById('lightbox-close')!;
+
+  let images: { src: string; alt: string }[] = [];
+  let current = 0;
+
+  function updateImage() {
+    img.src = images[current].src;
+    img.alt = images[current].alt;
+    counter.textContent = `${current + 1} / ${images.length}`;
+  }
+
+  function openLightbox(index: number, imgs: { src: string; alt: string }[]) {
+    images = imgs;
+    current = index;
+    lightbox.style.display = 'flex';
+    updateImage();
+    gsap.fromTo(img, { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'power2.out' });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    gsap.to(lightbox, {
+      opacity: 0, duration: 0.2,
+      onComplete: () => {
+        lightbox.style.display = 'none';
+        lightbox.style.opacity = '1';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', () => {
+    current = (current - 1 + images.length) % images.length;
+    gsap.fromTo(img, { x: -20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.25 });
+    updateImage();
+  });
+  nextBtn.addEventListener('click', () => {
+    current = (current + 1) % images.length;
+    gsap.fromTo(img, { x: 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.25 });
+    updateImage();
+  });
+
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'none' || lightbox.style.display === '') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevBtn.click();
+    if (e.key === 'ArrowRight') nextBtn.click();
+  });
+
+  // API pública
+  (window as any).__openLightbox = openLightbox;
+</script>

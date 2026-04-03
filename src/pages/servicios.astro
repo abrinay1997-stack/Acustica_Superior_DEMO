@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroInterno from '../components/HeroInterno.astro';
+import ServiciosGrid from '../components/ServiciosGrid.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+<Layout title="Servicios" description="Servicios de tratamiento acústico profesional en Panamá: adecuación acústica, aislamiento, balance frecuencial, control de ruido y medición acústica.">
+  <HeroInterno titulo="Nuestros Servicios" subtitulo="Soluciones acústicas diseñadas con precisión técnica para cada tipo de espacio." />
+  <section class="py-20"><ServiciosGrid /></section>
+  <CTABanner />
+</Layout>

@@ -1,0 +1,64 @@
+---
+import ParticlesCanvas from './ParticlesCanvas.astro';
+---
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden pt-16">
+  <ParticlesCanvas />
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(253,232,23,0.04) 0%, transparent 70%)"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
+    <div class="hero-content">
+      <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase mb-6 px-3 py-1 rounded-full" style="color: #FDE817; border: 1px solid rgba(253,232,23,0.25)">
+        Tratamiento Acústico Profesional · Panamá
+      </span>
+      <h1 class="font-black leading-[1.05] mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); color: white">
+        Transformamos<br>
+        <span style="color: #FDE817">Espacios en</span><br>
+        Sonido.
+      </h1>
+      <p class="text-lg leading-relaxed mb-8 max-w-lg" style="color: rgba(255,255,255,0.45)">
+        Diseño acústico personalizado para estudios de grabación, salas de reunión y espacios corporativos. Precisión técnica con estética superior.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="https://wa.me/50761399247?text=Hola,%20quiero%20una%20cotización" target="_blank" rel="noopener"
+          class="inline-flex items-center gap-2 font-bold px-7 py-3 rounded hover:brightness-110 transition-all text-black"
+          style="background: #FDE817">
+          Solicitar Cotización
+        </a>
+        <a href="/proyectos"
+          class="inline-flex items-center gap-2 text-white px-7 py-3 rounded hover:brightness-110 transition-all"
+          style="border: 1px solid rgba(255,255,255,0.08)">
+          Ver Proyectos ↓
+        </a>
+      </div>
+    </div>
+    <div id="hero-image" class="hidden lg:block relative rounded-2xl overflow-hidden" style="height: 520px; border: 1px solid rgba(255,255,255,0.08)">
+      <img src="/images/Studio1.webp" alt="Proyecto acústico — estudio profesional" class="w-full h-full object-cover" loading="eager" />
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(8,8,8,0.6) 0%, transparent 60%)"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('#hero-image', {
+    y: -80,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    }
+  });
+
+  gsap.from('.hero-content > *', {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power2.out',
+    delay: 0.3,
+  });
+</script>

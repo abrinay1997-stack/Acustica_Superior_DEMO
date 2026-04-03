@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:acusticasuperior.com)",
+      "Bash(bash:*)",
+      "Bash(mkdir -p \"C:/Users/MIPC/Desktop/DESARROLLOS/ACUSTICA SUPERIOR/.claude\")",
+      "Bash(npm create:*)",
+      "Bash(cp:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npm list:*)",
+      "Bash(GITHUB_PAGES=true npm run build)"
+    ]
+  }
+}

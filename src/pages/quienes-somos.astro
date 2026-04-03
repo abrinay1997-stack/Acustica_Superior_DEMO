@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroInterno from '../components/HeroInterno.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const valores = [
+  { icon: '◈', titulo: 'Precisión Técnica', descripcion: 'Utilizamos metodologías de medición acústica calibradas para garantizar resultados verificables y reproducibles.' },
+  { icon: '◇', titulo: 'Estética Superior', descripcion: 'Diseñamos soluciones que integran la técnica con la estética, mejorando la apariencia de cada espacio.' },
+  { icon: '◆', titulo: 'Funcionalidad Total', descripcion: 'Cada solución está diseñada para el uso real del espacio, priorizando la funcionalidad a largo plazo.' },
+];
+---
+<Layout
+  title="Quiénes Somos"
+  description="Acústica Superior: empresa panameña especializada en soluciones acústicas profesionales, tratamiento de espacios y diseño acústico personalizado."
+>
+  <HeroInterno
+    titulo="Quiénes Somos"
+    subtitulo="Diseñamos el sonido de tu espacio con precisión técnica y estética superior."
+    imagen="/images/Studio5.webp"
+  />
+
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-sm font-semibold tracking-widest uppercase mb-4" style="color: #FDE817">Nuestra Historia</p>
+        <h2 class="font-black text-white mb-6" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.5rem)">
+          Especialistas en acústica<br />con sede en Panamá.
+        </h2>
+        <div class="space-y-4 text-base leading-relaxed" style="color: rgba(255,255,255,0.45)">
+          <p>Acústica Superior nació con la misión de ofrecer soluciones acústicas personalizadas de nivel internacional en el mercado panameño. Combinamos ingeniería de precisión con diseño de interiores para transformar cualquier espacio.</p>
+          <p>Trabajamos con estudios de grabación profesionales, salas de reunión corporativas, espacios de podcasting, y entornos industriales que requieren control de ruido técnico.</p>
+          <p>Cada proyecto comienza con una medición diagnóstica y termina con una solución completamente instalada y verificada, garantizando los resultados prometidos.</p>
+        </div>
+      </div>
+      <div class="relative rounded-2xl overflow-hidden" style="height: 20rem; border: 1px solid rgba(255,255,255,0.08)">
+        <img src="/images/Studio7.webp" alt="Equipo Acústica Superior" class="w-full h-full object-cover" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20" style="border-top: 1px solid rgba(255,255,255,0.08)">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <p class="text-sm font-semibold tracking-widest uppercase mb-3" style="color: #FDE817">Nuestros Valores</p>
+        <h2 class="font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.75rem,3vw,2.25rem)">Lo que nos define</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {valores.map(v => (
+          <div class="valor-card glass glass-hover p-8 text-center">
+            <div class="text-4xl mb-4" style="color: #FDE817">{v.icon}</div>
+            <h3 class="font-bold text-xl mb-3 text-white" style="font-family: 'Plus Jakarta Sans', sans-serif">{v.titulo}</h3>
+            <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.45)">{v.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('.valor-card', {
+    y: 40, opacity: 0, stagger: 0.15, duration: 0.7, ease: 'power2.out',
+    scrollTrigger: { trigger: '.valor-card', start: 'top 85%' }
+  });
+</script>
