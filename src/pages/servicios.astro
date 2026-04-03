@@ -1,10 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroInterno from '../components/HeroInterno.astro';
-import ServiciosGrid from '../components/ServiciosGrid.astro';
 import CTABanner from '../components/CTABanner.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const servicios = [
+  {
+    imagen: `${base}/images/Adecuación_acustica.webp`,
+    titulo: 'Adecuación Acústica',
+    descripcion: 'Optimizamos el comportamiento sonoro de tu espacio interior mediante análisis y tratamiento personalizado. Cada material, cada superficie y cada dimensión del espacio influye en cómo suena. Identificamos los problemas y los corregimos.',
+    beneficios: [
+      'Análisis completo del espacio con medición calibrada',
+      'Reducción de reverberación excesiva',
+      'Mejora de la claridad del habla en salas de reunión',
+      'Materiales de alta absorción con acabado estético',
+      'Garantía de resultados medibles',
+    ],
+    id: 'adecuacion',
+    numero: '01',
+    flip: false,
+  },
+  {
+    imagen: `${base}/images/Aislamiento_y_bloqueo_acustico.webp`,
+    titulo: 'Aislamiento y Bloqueo Acústico',
+    descripcion: 'Barreras técnicas que controlan la transmisión de sonido entre ambientes para máxima privacidad. Eliminamos la fuga de sonido entre espacios críticos como estudios de grabación, salas de conferencias y áreas privadas.',
+    beneficios: [
+      'Diseño de sistemas de masa-resorte para paredes',
+      'Tratamiento de puntos de transmisión (puertas, ventanas)',
+      'Desconexión estructural para control de impacto',
+      'Cumplimiento de normativas de privacidad',
+      'Soluciones para construcciones nuevas y retrofitting',
+    ],
+    id: 'aislamiento',
+    numero: '02',
+    flip: true,
+  },
+  {
+    imagen: `${base}/images/Balance_frecuencial.webp`,
+    titulo: 'Balance Frecuencial',
+    descripcion: 'Corrección de frecuencias para lograr una respuesta plana y fiel en estudios de grabación y mezcla. Un espacio con respuesta frecuencial irregular distorsiona lo que escuchas, afectando decisiones de mezcla y masterización.',
+    beneficios: [
+      'Medición de respuesta en frecuencia (RTA, waterfall)',
+      'Trampa de graves personalizada para bajos incontrolados',
+      'Difusores cuadráticos para alta frecuencia',
+      'Calibración de monitores de estudio',
+      'Informe técnico detallado pre y post tratamiento',
+    ],
+    id: 'balance',
+    numero: '03',
+    flip: false,
+  },
+  {
+    imagen: `${base}/images/Control_de_Ruido_Industrial.webp`,
+    titulo: 'Control de Ruido Industrial',
+    descripcion: 'Soluciones de ingeniería acústica para entornos industriales, cumpliendo normativas de seguridad laboral. Protegemos a los trabajadores y al entorno del impacto de maquinaria, equipos de HVAC y procesos productivos ruidosos.',
+    beneficios: [
+      'Diagnóstico de niveles de presión sonora (dBA)',
+      'Encapsulamiento de maquinaria ruidosa',
+      'Barreras acústicas industriales',
+      'Cumplimiento OSHA y normativas panameñas',
+      'Reducción de quejas de vecinos y multas',
+    ],
+    id: 'ruido',
+    numero: '04',
+    flip: true,
+  },
+  {
+    imagen: `${base}/images/Medición_y_diseño_acústico.webp`,
+    titulo: 'Medición y Diseño Acústico',
+    descripcion: 'Diagnóstico profesional con equipos de medición calibrados y diseño de soluciones a medida. Antes de instalar cualquier tratamiento, medimos el estado actual del espacio con precisión técnica para diseñar la solución correcta.',
+    beneficios: [
+      'Medición de RT60 (tiempo de reverberación)',
+      'Análisis de modos de sala (standing waves)',
+      'Planos técnicos de solución acústica',
+      'Modelado 3D del comportamiento acústico',
+      'Propuesta detallada con presupuesto cerrado',
+    ],
+    id: 'medicion',
+    numero: '05',
+    flip: false,
+  },
+];
 ---
 <Layout
   title="Servicios"
@@ -36,10 +113,96 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </section>
 
-  <!-- Grid de servicios -->
-  <section style="padding: 2rem 0 6rem">
-    <ServiciosGrid />
+  <!-- Servicios feature list alternado -->
+  <section style="padding:2rem 0 6rem">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;display:flex;flex-direction:column;gap:5rem">
+
+      {servicios.map((s) => (
+        <div id={s.id} class="servicio-row" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+
+          <!-- Imagen (order swap via CSS for flip) -->
+          <div class={s.flip ? 'img-col img-col-flip' : 'img-col'} style="position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 64px rgba(0,0,0,0.4)">
+            <img
+              src={s.imagen}
+              alt={s.titulo}
+              style="width:100%;height:22rem;object-fit:cover;display:block"
+              loading="lazy"
+            />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.6) 0%,transparent 50%)"></div>
+            <div style="position:absolute;top:1rem;left:1rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.6875rem;font-weight:700;letter-spacing:0.15em;color:rgba(255,255,255,0.4);background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);padding:0.25rem 0.625rem;border-radius:4px">
+              {s.numero}
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class={s.flip ? 'txt-col txt-col-flip' : 'txt-col'}>
+            <div style="width:2.5rem;height:2px;background:#FDE817;border-radius:2px;margin-bottom:1.25rem"></div>
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.5rem,2.5vw,2rem);color:white;margin-bottom:1rem;line-height:1.2;letter-spacing:-0.02em">
+              {s.titulo}
+            </h3>
+            <p style="font-size:0.9375rem;line-height:1.75;color:rgba(255,255,255,0.55);margin-bottom:1.75rem">
+              {s.descripcion}
+            </p>
+
+            <ul style="display:flex;flex-direction:column;gap:0.625rem;margin-bottom:2rem">
+              {s.beneficios.map(ben => (
+                <li style="display:flex;align-items:flex-start;gap:0.75rem;font-size:0.875rem;color:rgba(255,255,255,0.6);line-height:1.5">
+                  <span style="color:#FDE817;font-size:0.75rem;margin-top:0.2rem;flex-shrink:0">◆</span>
+                  {ben}
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={`https://wa.me/50761399247?text=Hola,%20quiero%20cotizar%20el%20servicio%20de%20${encodeURIComponent(s.titulo)}`}
+              target="_blank"
+              rel="noopener"
+              class="btn-primary"
+              style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.9375rem"
+            >
+              Solicitar cotización →
+            </a>
+          </div>
+
+        </div>
+      ))}
+
+    </div>
   </section>
 
   <CTABanner />
 </Layout>
+
+<style>
+  /* Flip: imagen va a la derecha (orden 2), texto a la izquierda (orden 1) */
+  .img-col-flip { order: 2; }
+  .txt-col-flip { order: 1; }
+
+  @media (max-width: 1023px) {
+    .servicio-row {
+      grid-template-columns: 1fr !important;
+    }
+    /* En mobile, imagen siempre arriba independientemente del flip */
+    .img-col, .img-col-flip { order: 1 !important; }
+    .txt-col, .txt-col-flip { order: 2 !important; }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.servicio-row').forEach((row: any) => {
+    gsap.from(row, {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: row,
+        start: 'top 85%',
+      },
+    });
+  });
+</script>
