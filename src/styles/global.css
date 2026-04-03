@@ -198,3 +198,45 @@ img {
   background: rgba(253, 232, 23, 0.25);
   color: #ffffff;
 }
+
+/* ── Custom cursor ─────────────────────────────────── */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #FDE817;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  mix-blend-mode: difference;
+}
+
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(253, 232, 23, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
+
+#cursor-dot.hovering {
+  width: 12px;
+  height: 12px;
+  background: #FDE817;
+}
+
+#cursor-ring.hovering {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(253, 232, 23, 0.35);
+}
