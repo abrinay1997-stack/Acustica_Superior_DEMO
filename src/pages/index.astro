@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <StatsStrip />
 
   <!-- Servicios preview -->
-  <section style="padding: 6rem 0">
+  <section id="section-servicios" style="padding: 6rem 0">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
 
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem">
@@ -38,7 +38,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </section>
 
   <!-- Proyectos preview -->
-  <section style="padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.06)">
+  <section id="section-proyectos" style="padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.06)">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
 
       <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem">
@@ -56,7 +56,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         </a>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem">
+      <div id="proyectos-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem">
         {[1, 2, 3, 4].map(n => (
           <a
             href={`${base}/proyectos`}
@@ -71,12 +71,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
               loading="lazy"
             />
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,0.5) 0%,transparent 50%)"></div>
-            <div
-              style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.25rem;opacity:0;transition:opacity 0.3s"
-              onmouseenter="this.style.opacity='1'"
-              onmouseleave="this.style.opacity='0'"
-            >
-              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);padding:0.25rem 0.625rem;border-radius:4px">
+            <div style="position:absolute;inset:0;display:flex;align-items:flex-end;padding:1.25rem">
+              <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;color:rgba(255,255,255,0.8);background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);padding:0.25rem 0.625rem;border-radius:4px;opacity:0;transition:opacity 0.3s" class="studio-label">
                 Studio {n}
               </span>
             </div>
@@ -86,6 +82,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     </div>
   </section>
+
+<style>
+  @media (max-width: 767px) {
+    #section-servicios { padding: 3.5rem 0 !important; }
+    #section-proyectos { padding: 3.5rem 0 !important; }
+    #proyectos-grid { grid-template-columns: 1fr !important; }
+    #section-servicios .flex,
+    #section-proyectos .flex {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+    }
+  }
+</style>
 
   <CTABanner />
 </Layout>
