@@ -64,7 +64,7 @@ const valores = [
           </div>
 
           <!-- Mini stats -->
-          <div style="display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap">
+          <div id="historia-stats" style="display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap">
             <div>
               <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:2rem;color:#FDE817">500+</div>
               <div style="font-size:0.8125rem;color:rgba(255,255,255,0.4);margin-top:0.25rem">Consultorías realizadas</div>
@@ -160,6 +160,18 @@ const valores = [
   @media (max-width: 767px) {
     #valores-grid { grid-template-columns: 1fr !important; }
     #historia-grid { gap: 2.5rem !important; }
+    /* Stats 2x2 en mobile */
+    #historia-stats {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+      gap: 1.25rem !important;
+    }
+    #historia-stats > div[style*="width:1px"] {
+      display: none !important;
+    }
+    #historia-stats > div {
+      text-align: center;
+    }
   }
 </style>
 
