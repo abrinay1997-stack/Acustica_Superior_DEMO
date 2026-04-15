@@ -1,18 +1,10 @@
 ---
 import { b } from '../utils/base';
 ---
-<section style="padding: 5rem 0; position: relative; overflow: hidden">
+<section class="cta-banner" style={`padding: 5rem 0; position: relative; background-image:url('${b}/images/Studio4.webp'); background-size:cover; background-position:center; background-attachment:fixed`}>
 
-  <!-- Background Studio image -->
-  <div style="position:absolute;inset:0">
-    <img
-      src={`${b}/images/Studio4.webp`}
-      alt=""
-      style="width:100%;height:100%;object-fit:cover;display:block"
-      loading="lazy"
-    />
-    <div style="position:absolute;inset:0;background:rgba(8,8,8,0.72)"></div>
-  </div>
+  <!-- Overlay oscuro -->
+  <div style="position:absolute;inset:0;background:rgba(8,8,8,0.72)"></div>
 
   <div style="position:relative;z-index:10;max-width:48rem;margin:0 auto;padding:0 1.5rem;text-align:center">
 
@@ -32,3 +24,12 @@ import { b } from '../utils/base';
 
   </div>
 </section>
+
+<style>
+  @supports (-webkit-overflow-scrolling: touch) {
+    .cta-banner { background-attachment: scroll !important; }
+  }
+  @media (max-width: 767px) {
+    .cta-banner { background-attachment: scroll !important; }
+  }
+</style>

@@ -9,19 +9,11 @@ import { b } from '../utils/base';
 const { titulo, subtitulo, imagen, breadcrumb } = Astro.props;
 const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
 ---
-<section class="hero-interno" style="position:relative;overflow:hidden;display:flex;align-items:flex-end;height:60vh;min-height:400px;max-height:640px">
+<section class="hero-interno" style={`position:relative;display:flex;align-items:flex-end;height:60vh;min-height:400px;max-height:640px;background-image:url('${imagenSrc}');background-size:cover;background-position:center;background-attachment:fixed`}>
 
-  <!-- Background image with layered overlay -->
-  <div style="position:absolute;inset:0">
-    <img
-      src={imagenSrc}
-      alt=""
-      style="width:100%;height:100%;object-fit:cover;transform:scale(1.05);display:block"
-      loading="eager"
-    />
-    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,0.75) 40%,rgba(8,8,8,0.35) 80%,rgba(8,8,8,0.2) 100%)"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(253,152,0,0.4) 30%,rgba(253,152,0,0.4) 70%,transparent 100%)"></div>
-  </div>
+  <!-- Overlay + accent line -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,0.75) 40%,rgba(8,8,8,0.35) 80%,rgba(8,8,8,0.2) 100%)"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(253,152,0,0.4) 30%,rgba(253,152,0,0.4) 70%,transparent 100%)"></div>
 
   <!-- Content positioned in bottom third -->
   <div style="position:relative;z-index:10;width:100%;padding-bottom:3.5rem">
@@ -55,6 +47,15 @@ const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
   </div>
 
 </section>
+
+<style>
+  @supports (-webkit-overflow-scrolling: touch) {
+    .hero-interno { background-attachment: scroll !important; }
+  }
+  @media (max-width: 767px) {
+    .hero-interno { background-attachment: scroll !important; }
+  }
+</style>
 
 <script>
   import gsap from 'gsap';

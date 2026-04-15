@@ -19,17 +19,15 @@ const clientes = [
   description="Proyectos de tratamiento acústico realizados por Acústica Superior en Panamá: estudios de grabación, salas corporativas y espacios industriales."
 >
   <HeroInterno
-    titulo="Algunos de Nuestros Proyectos & Clientes"
+    titulo="Algunos de Nuestros Proyectos"
     subtitulo="Cada espacio tiene su propia acústica. Aquí están algunas de nuestras transformaciones realizadas en Panamá."
     imagen={`${base}/images/Studio3.webp`}
     breadcrumb="Proyectos"
   />
 
-  <!-- Intro + clientes -->
+  <!-- Intro -->
   <section style="padding: 4rem 0 2rem">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
-
-      <!-- Header row -->
       <div style="margin-bottom:2rem">
         <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FD9800;margin-bottom:0.75rem;font-family:'DM Sans',sans-serif">
           Portafolio
@@ -41,76 +39,63 @@ const clientes = [
           Hemos tenido el privilegio de trabajar con algunos de los mejores artistas, productores, estudios de grabación e instalaciones de Panamá y Latinoamérica, logrando transformar sus espacios con tratamientos acústicos de alta calidad.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Toggle de clientes -->
-      <button
-        id="clientes-toggle"
-        aria-expanded="false"
-        style="display:inline-flex;align-items:center;gap:0.625rem;padding:0.625rem 1.25rem;border-radius:999px;border:1.5px solid rgba(253,152,0,0.35);background:rgba(253,152,0,0.05);color:#FD9800;font-size:0.875rem;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.2s;margin-bottom:0"
-        onmouseenter="this.style.background='rgba(253,152,0,0.1)';this.style.borderColor='rgba(253,152,0,0.6)'"
-        onmouseleave="if(this.getAttribute('aria-expanded')==='false'){this.style.background='rgba(253,152,0,0.05)';this.style.borderColor='rgba(253,152,0,0.35)'}"
-      >
-        <span id="toggle-icon" style="font-size:0.75rem;transition:transform 0.3s">▶</span>
-        Nuestros Clientes
-        <span style="background:rgba(253,152,0,0.15);color:#FD9800;font-size:0.75rem;font-weight:700;padding:0.125rem 0.5rem;border-radius:999px">{clientes.length}</span>
-      </button>
+  <!-- Galería de fotos -->
+  <ProyectosMasonry />
 
-      <!-- Pills grid — oculto por defecto -->
-      <div
-        id="clientes-pills"
-        style="overflow:hidden;max-height:0;transition:max-height 0.45s cubic-bezier(0.4,0,0.2,1),opacity 0.35s ease,margin-top 0.3s ease;opacity:0;margin-top:0"
-      >
-        <div style="padding-top:1.25rem;display:flex;flex-wrap:wrap;gap:0.625rem">
-          {clientes.map(c => (
-            <span
-              class="client-pill"
-              style="display:inline-flex;align-items:center;gap:0.375rem;padding:0.375rem 1rem;border-radius:999px;border:1px solid rgba(0,0,0,0.1);background:#FFFFFF;font-size:0.8125rem;font-weight:500;color:rgb(69,79,94);font-family:'DM Sans',sans-serif;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:border-color 0.2s,color 0.2s,box-shadow 0.2s"
-              onmouseenter="this.style.borderColor='rgba(253,152,0,0.5)';this.style.color='#FD9800';this.style.boxShadow='0 4px 12px rgba(253,152,0,0.12)'"
-              onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.color='rgb(69,79,94)';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'"
-            >
-              <span style="width:5px;height:5px;background:#FD9800;border-radius:50%;flex-shrink:0;opacity:0.7"></span>
-              {c}
-            </span>
-          ))}
-        </div>
+  <!-- Sección de clientes — debajo de la galería -->
+  <section id="clientes-section" style="padding:4rem 0 5rem;background:#F9FAFB">
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;gap:1.25rem;margin-bottom:2rem;flex-wrap:wrap">
+        <div style="width:2.5rem;height:2px;background:#FD9800;border-radius:2px;flex-shrink:0"></div>
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FD9800;font-family:'DM Sans',sans-serif;margin:0">
+          Algunos de nuestros Clientes
+        </p>
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:1.75rem;height:1.75rem;border-radius:50%;background:rgba(253,152,0,0.12);color:#FD9800;font-size:0.75rem;font-weight:700;font-family:'DM Sans',sans-serif;flex-shrink:0">
+          {clientes.length}
+        </span>
+      </div>
+
+      <!-- Pills grid — siempre visibles -->
+      <div style="display:flex;flex-wrap:wrap;gap:0.625rem">
+        {clientes.map(c => (
+          <span
+            class="client-pill"
+            style="display:inline-flex;align-items:center;gap:0.375rem;padding:0.4375rem 1.125rem;border-radius:999px;border:1px solid rgba(0,0,0,0.1);background:#FFFFFF;font-size:0.8125rem;font-weight:500;color:rgb(69,79,94);font-family:'DM Sans',sans-serif;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:border-color 0.2s,color 0.2s,box-shadow 0.2s,transform 0.2s"
+            onmouseenter="this.style.borderColor='rgba(253,152,0,0.5)';this.style.color='#FD9800';this.style.boxShadow='0 4px 12px rgba(253,152,0,0.12)';this.style.transform='translateY(-2px)'"
+            onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.color='rgb(69,79,94)';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)';this.style.transform='translateY(0)'"
+          >
+            <span style="width:5px;height:5px;background:#FD9800;border-radius:50%;flex-shrink:0;opacity:0.7"></span>
+            {c}
+          </span>
+        ))}
       </div>
 
     </div>
   </section>
 
-  <ProyectosMasonry />
-
   <CTABanner />
 </Layout>
 
-<style>
-  #clientes-toggle[aria-expanded="true"] {
-    background: rgba(253,152,0,0.1) !important;
-    border-color: rgba(253,152,0,0.6) !important;
-  }
-</style>
-
 <script>
-  const toggle = document.getElementById('clientes-toggle')!;
-  const pills  = document.getElementById('clientes-pills')!;
-  const icon   = document.getElementById('toggle-icon')!;
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
 
-  let open = false;
-
-  toggle.addEventListener('click', () => {
-    open = !open;
-    toggle.setAttribute('aria-expanded', String(open));
-
-    if (open) {
-      pills.style.maxHeight  = pills.scrollHeight + 'px';
-      pills.style.opacity    = '1';
-      pills.style.marginTop  = '0';
-      icon.style.transform   = 'rotate(90deg)';
-    } else {
-      pills.style.maxHeight  = '0';
-      pills.style.opacity    = '0';
-      pills.style.marginTop  = '0';
-      icon.style.transform   = 'rotate(0deg)';
-    }
+  // Animar los pills al entrar en vista
+  gsap.from('.client-pill', {
+    y: 20,
+    opacity: 0,
+    stagger: 0.04,
+    duration: 0.5,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '#clientes-section',
+      start: 'top 85%',
+    },
   });
 </script>
