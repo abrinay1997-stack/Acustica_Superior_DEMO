@@ -5,13 +5,21 @@ import ProyectosMasonry from '../components/ProyectosMasonry.astro';
 import CTABanner from '../components/CTABanner.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const clientes = [
+  'Flow La Música', 'Mista Bombo', 'Omar Alfano', 'Faster Musica',
+  'Shok Multimedia', 'Rike Music', 'Javier Saavedra', 'Bk',
+  'Eddy Lover', 'At Fat', 'Renan Delgado', 'Chino Gálvez',
+  'Chiqui Dubs', 'La Manzana Estudio', 'Rafita', 'Smile Beats',
+  'Dj Greg', 'Infinity Gun Club',
+];
 ---
 <Layout
   title="Proyectos"
   description="Proyectos de tratamiento acústico realizados por Acústica Superior en Panamá: estudios de grabación, salas corporativas y espacios industriales."
 >
   <HeroInterno
-    titulo="Nuestros Proyectos"
+    titulo="Algunos de Nuestros Proyectos & Clientes"
     subtitulo="Cada espacio tiene su propia acústica. Aquí están algunas de nuestras transformaciones realizadas en Panamá."
     imagen={`${base}/images/Studio3.webp`}
     breadcrumb="Proyectos"
@@ -19,18 +27,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <!-- Intro row -->
   <section style="padding: 4rem 0 2rem">
-    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem">
-      <div>
-        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FDE817;margin-bottom:0.75rem">
-          Portafolio
-        </p>
-        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.02em;line-height:1.1">
-          Galería de proyectos
-        </h2>
+    <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem">
+        <div style="max-width:42rem">
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FD9800;margin-bottom:0.75rem;font-family:'DM Sans',sans-serif">
+            Portafolio
+          </p>
+          <h2 style="font-family:'Lexend',sans-serif;font-weight:900;color:#1f2937;font-size:clamp(1.75rem,3vw,2.5rem);letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem">
+            Galería de proyectos
+          </h2>
+          <p style="font-size:0.9375rem;color:rgba(69,79,94,0.75);line-height:1.7;font-family:'DM Sans',sans-serif">
+            Hemos tenido el privilegio de trabajar con algunos de los mejores artistas, productores, estudios de grabación e instalaciones de Panamá y Latinoamérica, logrando transformar sus espacios con tratamientos acústicos de alta calidad.
+          </p>
+        </div>
+
+        <!-- Accordion de clientes -->
+        <div style="min-width:260px;max-width:340px">
+          <details id="clientes-accordion" style="border:1px solid rgba(0,0,0,0.08);border-radius:16px;overflow:hidden;background:#FFFFFF;box-shadow:0 2px 12px rgba(0,0,0,0.05)">
+            <summary style="display:flex;align-items:center;justify-content:space-between;padding:1.125rem 1.5rem;cursor:pointer;font-family:'Lexend',sans-serif;font-weight:700;font-size:0.9375rem;color:#1f2937;list-style:none;gap:1rem;transition:background 0.2s">
+              <span style="display:flex;align-items:center;gap:0.625rem">
+                <span style="width:8px;height:8px;background:#FD9800;border-radius:50%;flex-shrink:0;display:inline-block"></span>
+                Nuestros Clientes
+              </span>
+              <span class="accordion-icon" style="color:#FD9800;font-size:1.1rem;transition:transform 0.3s;flex-shrink:0">▾</span>
+            </summary>
+            <div style="border-top:1px solid rgba(0,0,0,0.06);padding:1.25rem 1.5rem">
+              <ul style="display:flex;flex-direction:column;gap:0.625rem;list-style:none;margin:0;padding:0">
+                {clientes.map(c => (
+                  <li style="display:flex;align-items:center;gap:0.625rem;font-size:0.875rem;color:rgba(69,79,94,0.8);font-family:'DM Sans',sans-serif">
+                    <span style="width:4px;height:4px;background:#FD9800;border-radius:50%;flex-shrink:0"></span>
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </details>
+        </div>
+
       </div>
-      <p style="font-size:0.9375rem;color:rgba(255,255,255,0.5);max-width:28rem;line-height:1.65">
-        Haz clic en cualquier imagen para verla en detalle. Cada proyecto es una transformación acústica completa.
-      </p>
     </div>
   </section>
 
@@ -38,3 +72,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   <CTABanner />
 </Layout>
+
+<style>
+  details[open] .accordion-icon {
+    transform: rotate(180deg);
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary:hover { background: rgba(0,0,0,0.02); }
+</style>
