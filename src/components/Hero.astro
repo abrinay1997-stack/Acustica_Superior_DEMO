@@ -3,7 +3,7 @@ import { b } from '../utils/base';
 ---
 <section id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden">
 
-  <!-- BG image fullscreen -->
+  <!-- BG image fullscreen — imagen lo más limpia posible -->
   <div style="position:absolute;inset:0">
     <img
       src={`${b}/images/Studio1.webp`}
@@ -11,42 +11,30 @@ import { b } from '../utils/base';
       style="width:100%;height:100%;object-fit:cover;object-position:center"
       loading="eager"
     />
-    <!-- Capa 1: oscurecimiento base uniforme -->
-    <div style="position:absolute;inset:0;background:rgba(8,8,8,0.55)"></div>
-    <!-- Capa 2: gradient vertical — cielo abierto arriba, negro sólido abajo -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,0.2) 0%,rgba(8,8,8,0.98) 80%)"></div>
-    <!-- Capa 3: gradient lateral sutil — izquierda oscura para legibilidad del texto -->
-    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(8,8,8,0.3) 0%,transparent 55%)"></div>
-  </div>
-
-  <!-- Ambient glow blobs -->
-  <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden">
-    <div style="position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(253,152,0,0.06) 0%,transparent 65%);top:-200px;left:-150px"></div>
-    <div style="position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(253,152,0,0.08) 0%,transparent 65%);bottom:-100px;right:-50px"></div>
+    <!-- Overlay mínimo: solo suficiente para leer el texto blanco -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.12) 0%,rgba(0,0,0,0.48) 100%)"></div>
   </div>
 
   <!-- Content -->
   <div style="position:relative;z-index:10;width:100%;padding-top:5rem">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;text-align:center">
-      <div class="hero-content" style="max-width:56rem;margin:0 auto">
+      <div class="hero-content">
 
-        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;padding:0.25rem 0.75rem;border-radius:9999px;color:#FD9800;border:1px solid rgba(253,152,0,0.3);background:rgba(253,152,0,0.06);font-family:'DM Sans',sans-serif">
+        <span style="display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;padding:0.25rem 0.75rem;border-radius:9999px;color:#FD9800;border:1px solid rgba(253,152,0,0.35);background:rgba(253,152,0,0.08);font-family:'DM Sans',sans-serif">
           Tratamiento Acústico Profesional · Panamá
         </span>
 
-        <h1 style="font-family:'Lexend',sans-serif;font-weight:900;line-height:1.1;margin-bottom:1.5rem;font-size:clamp(2rem,4.5vw,3.5rem);color:white">
+        <h1 style="font-family:'Lexend',sans-serif;font-weight:900;line-height:1.12;margin-bottom:1.5rem;font-size:clamp(2.5rem,4.2vw,3.375rem);color:white;max-width:100%">
           ¡En Acústica Superior ofrecemos soluciones acústicas personalizadas para mejorar el sonido y la funcionalidad de tu espacio!
         </h1>
 
-        <p style="font-size:1.125rem;line-height:1.75;margin-bottom:2.5rem;max-width:38rem;margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.65);font-family:'DM Sans',sans-serif">
+        <p style="font-size:1.125rem;line-height:1.75;margin-bottom:2.5rem;color:rgba(255,255,255,0.75);font-family:'DM Sans',sans-serif">
           Somos especialistas en acústica arquitectónica y tratamiento acústico.
         </p>
 
-        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
-          <a href="https://wa.me/50761399247?text=Hola,%20quiero%20una%20cotización" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;text-decoration:none">
-            Cotiza Con Nosotros →
-          </a>
-        </div>
+        <a href="https://wa.me/50761399247?text=Hola,%20quiero%20una%20cotización" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;text-decoration:none">
+          Cotiza Con Nosotros →
+        </a>
 
       </div>
     </div>
@@ -59,25 +47,16 @@ import { b } from '../utils/base';
       padding-top: 6rem !important;
       padding-bottom: 3rem !important;
     }
-    #hero > div:last-child > div {
-      padding-left: 1rem !important;
-      padding-right: 1rem !important;
-    }
     .hero-content h1 {
-      font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+      font-size: clamp(1.75rem, 6vw, 2.4rem) !important;
       line-height: 1.2 !important;
     }
     .hero-content p {
       font-size: 1rem !important;
     }
-    .hero-content > div[style*="gap"] {
-      flex-direction: column !important;
-      align-items: center !important;
-    }
-    .hero-content > div[style*="gap"] a {
+    .hero-content a {
       width: 100% !important;
       justify-content: center !important;
-      text-align: center !important;
     }
   }
 </style>
