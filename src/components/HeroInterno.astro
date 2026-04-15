@@ -20,7 +20,7 @@ const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
       loading="eager"
     />
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,1) 0%,rgba(8,8,8,0.75) 40%,rgba(8,8,8,0.35) 80%,rgba(8,8,8,0.2) 100%)"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(253,232,23,0.4) 30%,rgba(253,232,23,0.4) 70%,transparent 100%)"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(253,152,0,0.4) 30%,rgba(253,152,0,0.4) 70%,transparent 100%)"></div>
   </div>
 
   <!-- Content positioned in bottom third -->
@@ -29,24 +29,24 @@ const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
 
       <!-- Breadcrumb -->
       {breadcrumb && (
-        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem">
-          <a href={`${b}/`} style="color:rgba(255,255,255,0.4);transition:color 0.2s" onmouseenter="this.style.color='rgba(253,232,23,0.7)'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Inicio</a>
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;font-family:'DM Sans',sans-serif">
+          <a href={`${b}/`} style="color:rgba(255,255,255,0.4);transition:color 0.2s" onmouseenter="this.style.color='rgba(253,152,0,0.7)'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Inicio</a>
           <span style="color:rgba(255,255,255,0.2)">›</span>
-          <span style="color:rgba(253,232,23,0.6)">{breadcrumb}</span>
+          <span style="color:rgba(253,152,0,0.7)">{breadcrumb}</span>
         </p>
       )}
 
       <!-- Accent line -->
-      <div style="width:2.5rem;height:2px;background:linear-gradient(90deg,#FDE817 0%,rgba(253,232,23,0.3) 100%);border-radius:2px;margin-bottom:1.25rem"></div>
+      <div style="width:2.5rem;height:2px;background:linear-gradient(90deg,#FD9800 0%,rgba(253,152,0,0.3) 100%);border-radius:2px;margin-bottom:1.25rem"></div>
 
       <!-- Title -->
-      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;color:white;line-height:1.05;font-size:clamp(2.25rem,5vw,3.75rem);letter-spacing:-0.02em;margin-bottom:{subtitulo ? '1rem' : '0'}">
+      <h1 style="font-family:'Lexend',sans-serif;font-weight:900;color:white;line-height:1.05;font-size:clamp(2.25rem,5vw,3.75rem);letter-spacing:-0.02em;margin-bottom:{subtitulo ? '1rem' : '0'}">
         {titulo}
       </h1>
 
       <!-- Subtitle -->
       {subtitulo && (
-        <p style="font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.55);max-width:36rem;line-height:1.6;margin-top:1rem">
+        <p style="font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.6);max-width:36rem;line-height:1.6;margin-top:1rem;font-family:'DM Sans',sans-serif">
           {subtitulo}
         </p>
       )}

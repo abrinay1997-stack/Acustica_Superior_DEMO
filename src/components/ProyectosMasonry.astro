@@ -16,11 +16,11 @@ const proyectos = Array.from({ length: 12 }, (_, i) => ({
       {proyectos.map((p, i) => (
         <button
           class="proyecto-item"
-          style="position:relative;width:100%;margin-bottom:1rem;display:block;overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,0.08);cursor:pointer;background:none;padding:0;break-inside:avoid;transition:border-color 0.3s,transform 0.3s"
+          style="position:relative;width:100%;margin-bottom:1rem;display:block;overflow:hidden;border-radius:16px;border:1px solid rgba(0,0,0,0.08);cursor:pointer;background:none;padding:0;break-inside:avoid;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.06)"
           data-index={i}
           aria-label={`Ver ${p.label}`}
-          onmouseenter="this.style.borderColor='rgba(253,232,23,0.3)';this.style.transform='scale(1.02)';this.querySelector('.proyecto-overlay').style.opacity='1';this.querySelector('img').style.transform='scale(1.06)'"
-          onmouseleave="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='scale(1)';this.querySelector('.proyecto-overlay').style.opacity='0';this.querySelector('img').style.transform='scale(1)'"
+          onmouseenter="this.style.borderColor='rgba(253,152,0,0.35)';this.style.transform='scale(1.02)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.15)';this.querySelector('.proyecto-overlay').style.opacity='1';this.querySelector('img').style.transform='scale(1.06)'"
+          onmouseleave="this.style.borderColor='rgba(0,0,0,0.08)';this.style.transform='scale(1)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.06)';this.querySelector('.proyecto-overlay').style.opacity='0';this.querySelector('img').style.transform='scale(1)'"
         >
           <img
             src={p.src}
