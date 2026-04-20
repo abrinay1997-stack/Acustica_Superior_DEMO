@@ -8,31 +8,63 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogUrl?: string;
 }
 
 const {
   title,
-  description = 'Soluciones acústicas profesionales en Panamá. Paneles acústicos, tratamiento, aislamiento y diseño acústico para estudios y espacios corporativos.',
+  description = 'Soluciones acústicas: paneles acústicos, difusores, tratamiento acústico, trampas de bajo, aislamiento y control de ruido.',
   ogImage = '/Logo/LOGO.webp',
+  ogUrl,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://acusticasuperior.netlify.app');
+const siteUrl = 'https://acusticasuperior.com';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? siteUrl);
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Acústica Superior",
-  "description": description,
+  "alternateName": "Acústica Superior Panamá",
+  "description": "Empresa panameña especializada en ingeniería acústica y tratamiento acústico profesional. Adecuación acústica, aislamiento, balance frecuencial, control de ruido industrial y diseño acústico personalizado.",
   "url": "https://acusticasuperior.com",
   "telephone": "+50761399247",
+  "email": "acusticasuperior@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressCountry": "PA",
-    "addressLocality": "Panamá"
+    "addressLocality": "Ciudad de Panamá",
+    "addressRegion": "Panamá"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "addressCountry": "PA"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Panamá"
+  },
+  "serviceType": [
+    "Adecuación Acústica",
+    "Aislamiento Acústico",
+    "Balance Frecuencial",
+    "Control de Ruido Industrial",
+    "Medición y Diseño Acústico",
+    "Diseño Acústico Personalizado"
+  ],
   "sameAs": [
     "https://www.instagram.com/acusticasuperior/",
-    "https://www.facebook.com/acusticasuperior"
+    "https://www.facebook.com/acusticasuperior",
+    "https://wa.me/50761399247"
   ]
 };
 ---
@@ -42,13 +74,24 @@ const schema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={ogUrl ?? canonicalURL} />
     <title>{title} | Acústica Superior</title>
 
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Acústica Superior" />
     <meta property="og:title" content={`${title} | Acústica Superior`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={String(ogUrl ?? canonicalURL)} />
+    <meta property="og:locale" content="es_PA" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Acústica Superior`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
 
     <!-- Fuentes optimizadas con display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

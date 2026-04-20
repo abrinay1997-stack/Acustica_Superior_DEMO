@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroInterno from '../components/HeroInterno.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const fechaActualizacion = '20 de abril de 2026';
+---
+
+<Layout
+  title="Términos de Uso"
+  description="Lee los términos y condiciones de uso del sitio web de Acústica Superior y de nuestros servicios de tratamiento acústico en Panamá."
+>
+  <HeroInterno
+    titulo="Términos de Uso"
+    subtitulo="Condiciones que regulan el uso de nuestro sitio web y la contratación de nuestros servicios."
+    imagen={`${base}/images/hero-servicios.webp`}
+    breadcrumb="Términos de Uso"
+  />
+
+  <section style="padding: 5rem 0 6rem">
+    <div style="max-width:52rem;margin:0 auto;padding:0 1.5rem">
+
+      <!-- Intro -->
+      <div style="margin-bottom:3rem">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FD9800;margin-bottom:0.75rem;font-family:'DM Sans',sans-serif">
+          Última actualización: {fechaActualizacion}
+        </p>
+        <p style="font-size:1rem;line-height:1.8;color:rgba(69,79,94,0.85);font-family:'DM Sans',sans-serif">
+          Bienvenido al sitio web de <strong>Acústica Superior</strong>. Al acceder y navegar por este sitio, aceptas los presentes Términos de Uso. Si no estás de acuerdo con alguna de estas condiciones, te pedimos que no utilices el sitio.
+        </p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:2.5rem" class="legal-content">
+
+        <div class="legal-section">
+          <h2>1. Identificación del titular</h2>
+          <p>El presente sitio web es propiedad y está operado por:</p>
+          <ul>
+            <li><strong>Razón social:</strong> Acústica Superior</li>
+            <li><strong>País de operación:</strong> República de Panamá</li>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:acusticasuperior@gmail.com">acusticasuperior@gmail.com</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/50761399247" target="_blank" rel="noopener">+507 6139-9247</a></li>
+            <li><strong>Dominio:</strong> <a href="https://acusticasuperior.com">acusticasuperior.com</a></li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>2. Objeto del sitio</h2>
+          <p>Este sitio web tiene como propósito presentar los servicios profesionales de ingeniería acústica y tratamiento acústico que ofrece Acústica Superior, incluyendo adecuación acústica, aislamiento, balance frecuencial, control de ruido industrial, medición y diseño acústico. También permite a los usuarios solicitar cotizaciones y contactar al equipo de Acústica Superior.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>3. Uso permitido del sitio</h2>
+          <p>Al utilizar este sitio web, te comprometes a:</p>
+          <ul>
+            <li>Acceder al sitio únicamente con fines legales y de buena fe.</li>
+            <li>No reproducir, distribuir ni modificar el contenido del sitio sin autorización escrita de Acústica Superior.</li>
+            <li>No utilizar el sitio para enviar comunicaciones no solicitadas (spam), malware ni contenido ilegal.</li>
+            <li>No intentar acceder a áreas restringidas del sistema o alterar su funcionamiento.</li>
+            <li>Proporcionar información veraz y actualizada al completar el formulario de contacto.</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>4. Propiedad intelectual</h2>
+          <p>Todo el contenido de este sitio web — incluyendo textos, imágenes, logotipos, diseño visual, código fuente, fotografías y materiales audiovisuales — es propiedad exclusiva de Acústica Superior o de sus respectivos titulares, y está protegido por las leyes de propiedad intelectual de la República de Panamá y por los tratados internacionales aplicables.</p>
+          <p>Queda expresamente prohibido:</p>
+          <ul>
+            <li>Copiar, reproducir o redistribuir el contenido con fines comerciales sin autorización.</li>
+            <li>Utilizar el nombre, logotipo o marca de Acústica Superior sin consentimiento previo y por escrito.</li>
+            <li>Crear obras derivadas basadas en los materiales del sitio sin autorización.</li>
+          </ul>
+          <p>Se permite la visualización e impresión del contenido exclusivamente para uso personal y no comercial.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>5. Servicios y cotizaciones</h2>
+          <p>La información sobre servicios que aparece en este sitio es de carácter informativo y referencial. Las cotizaciones de servicios son personalizadas y requieren una evaluación técnica del espacio. Ningún precio, plazo o condición publicado en el sitio constituye una oferta vinculante hasta que sea formalizado por escrito entre las partes.</p>
+          <p>Para obtener una propuesta formal, contáctanos a través del formulario de contacto o por WhatsApp.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>6. Limitación de responsabilidad</h2>
+          <p>Acústica Superior no será responsable por:</p>
+          <ul>
+            <li>Interrupciones temporales del servicio por causas de fuerza mayor, mantenimiento técnico o fallas ajenas a nuestro control.</li>
+            <li>Daños derivados del uso indebido del sitio por parte del usuario.</li>
+            <li>El contenido de sitios web de terceros enlazados desde este sitio.</li>
+            <li>Decisiones tomadas por el usuario basadas exclusivamente en la información general del sitio, sin consultar a nuestro equipo técnico.</li>
+          </ul>
+          <p>La responsabilidad total de Acústica Superior, en cualquier circunstancia, estará limitada al valor del servicio contratado.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>7. Disponibilidad del sitio</h2>
+          <p>Acústica Superior procura mantener el sitio disponible de forma continua, pero no garantiza su disponibilidad ininterrumpida. Nos reservamos el derecho de suspender temporalmente el acceso para realizar tareas de mantenimiento, actualizaciones o mejoras, con o sin previo aviso.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>8. Política de privacidad</h2>
+          <p>El uso de este sitio también está regido por nuestra <a href={`${base}/politica-de-privacidad`}>Política de Privacidad</a>, la cual forma parte integral de estos Términos de Uso. Al aceptar estos Términos, también aceptas las prácticas descritas en dicha Política.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>9. Modificaciones</h2>
+          <p>Acústica Superior se reserva el derecho de modificar estos Términos de Uso en cualquier momento. Los cambios entrarán en vigor desde su publicación en el sitio. Te recomendamos revisar esta página periódicamente. El uso continuado del sitio después de la publicación de cambios implica la aceptación de los términos actualizados.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>10. Legislación aplicable y jurisdicción</h2>
+          <p>Estos Términos de Uso se rigen por las leyes de la <strong>República de Panamá</strong>. Cualquier controversia derivada del uso de este sitio o de la interpretación de estos Términos se someterá a la jurisdicción exclusiva de los tribunales competentes de la Ciudad de Panamá, renunciando las partes a cualquier otro fuero que pudiera corresponderles.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>11. Contacto</h2>
+          <p>Para cualquier consulta relacionada con estos Términos de Uso, puedes contactarnos:</p>
+          <ul>
+            <li><strong>Email:</strong> <a href="mailto:acusticasuperior@gmail.com">acusticasuperior@gmail.com</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/50761399247" target="_blank" rel="noopener">+507 6139-9247</a></li>
+            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/acusticasuperior/" target="_blank" rel="noopener">@acusticasuperior</a></li>
+          </ul>
+        </div>
+
+        <!-- CTA -->
+        <div style="background:#F9FAFB;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:2rem;margin-top:1rem">
+          <div style="width:2rem;height:2px;background:#FD9800;border-radius:2px;margin-bottom:1rem"></div>
+          <h3 style="font-family:'Lexend',sans-serif;font-weight:700;color:#1f2937;font-size:1.125rem;margin-bottom:0.75rem">¿Listo para transformar tu espacio?</h3>
+          <p style="font-size:0.9375rem;color:rgba(69,79,94,0.8);margin-bottom:1.25rem;font-family:'DM Sans',sans-serif">Contáctanos hoy para una evaluación técnica gratuita de tu espacio.</p>
+          <a
+            href="https://wa.me/50761399247?text=Hola,%20quiero%20solicitar%20una%20cotización"
+            target="_blank"
+            rel="noopener"
+            class="btn-primary"
+            style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.9375rem;text-decoration:none"
+          >
+            Solicitar cotización →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <CTABanner />
+</Layout>
+
+<style>
+  .legal-content h2 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1f2937;
+    margin-bottom: 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .legal-content h3 {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #374151;
+    margin: 1rem 0 0.5rem;
+  }
+  .legal-content p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: rgba(69,79,94,0.85);
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content ul {
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-content li {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba(69,79,94,0.85);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .legal-content a {
+    color: #FD9800;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .legal-content a:hover {
+    color: #e08700;
+  }
+  .legal-section {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .legal-section:last-child {
+    border-bottom: none;
+  }
+</style>
