@@ -53,7 +53,14 @@ const imagenSrc = imagen ?? `${b}/images/hero-proyectos.webp`;
     .hero-interno { background-attachment: scroll !important; }
   }
   @media (max-width: 767px) {
-    .hero-interno { background-attachment: scroll !important; }
+    .hero-interno {
+      background-attachment: scroll !important;
+      min-height: 320px !important;
+      height: 50vh !important;
+    }
+    .hero-interno > div:last-child {
+      padding-bottom: 2rem !important;
+    }
   }
 </style>
 
