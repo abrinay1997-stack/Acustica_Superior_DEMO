@@ -7,7 +7,7 @@ interface Props {
 }
 import { b } from '../utils/base';
 const { titulo, subtitulo, imagen, breadcrumb } = Astro.props;
-const imagenSrc = imagen ?? `${b}/images/Studio3.webp`;
+const imagenSrc = imagen ?? `${b}/images/hero-proyectos.webp`;
 ---
 <section class="hero-interno" style={`position:relative;display:flex;align-items:flex-end;height:60vh;min-height:400px;max-height:640px;background-image:url('${imagenSrc}');background-size:cover;background-position:center;background-attachment:fixed`}>
 

@@ -2,11 +2,14 @@
 import Lightbox from './Lightbox.astro';
 
 import { b } from '../utils/base';
-const proyectos = Array.from({ length: 12 }, (_, i) => ({
-  src: `${b}/images/Studio${i + 1}.webp`,
-  alt: `Studio ${i + 1} — Proyecto acústico Acústica Superior`,
-  label: `Studio ${i + 1}`,
-}));
+const proyectos = Array.from({ length: 12 }, (_, i) => {
+  const nn = String(i + 1).padStart(2, '0');
+  return {
+    src: `${b}/images/proyecto-${nn}.webp`,
+    alt: `Proyecto ${i + 1} — Tratamiento acústico Acústica Superior`,
+    label: `Proyecto ${nn}`,
+  };
+});
 ---
 <Lightbox />
 
@@ -53,10 +56,14 @@ const proyectos = Array.from({ length: 12 }, (_, i) => ({
   gsap.registerPlugin(ScrollTrigger);
 
   // Pasar datos al lightbox
-  const proyectos = Array.from({ length: 12 }, (_, i) => ({
-    src: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/images/Studio${i + 1}.webp`,
-    alt: `Studio ${i + 1} — Proyecto acústico Acústica Superior`,
-  }));
+  const _base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const proyectos = Array.from({ length: 12 }, (_, i) => {
+    const nn = String(i + 1).padStart(2, '0');
+    return {
+      src: `${_base}/images/proyecto-${nn}.webp`,
+      alt: `Proyecto ${i + 1} — Tratamiento acústico Acústica Superior`,
+    };
+  });
 
   document.querySelectorAll('.proyecto-item').forEach((btn) => {
     btn.addEventListener('click', () => {
