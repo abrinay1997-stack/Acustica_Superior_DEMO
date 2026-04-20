@@ -95,7 +95,7 @@ import { b } from '../utils/base';
     </div>
 
     <!-- Bottom bar -->
-    <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem">
+    <div id="footer-bottom" style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem">
       <p style="color:rgba(255,255,255,0.25);font-size:0.8125rem;font-family:'DM Sans',sans-serif">
         © {new Date().getFullYear()} Acústica Superior. Todos los derechos reservados.
       </p>
@@ -126,5 +126,14 @@ import { b } from '../utils/base';
 <style>
   @media (max-width: 767px) {
     #footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    #footer-bottom {
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      gap: 0.625rem !important;
+    }
+    #footer-bottom > div {
+      justify-content: center !important;
+    }
   }
 </style>

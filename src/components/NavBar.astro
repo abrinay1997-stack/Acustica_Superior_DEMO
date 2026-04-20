@@ -96,6 +96,19 @@ const links = [
   </div>
 </header>
 
+<style>
+  /* ── Mobile: logo y altura del navbar ── */
+  @media (max-width: 767px) {
+    #navbar nav {
+      height: 5rem !important;
+      padding: 0 1rem !important;
+    }
+    #navbar nav > a img {
+      height: 3.75rem !important;
+    }
+  }
+</style>
+
 <script>
   const navbar = document.getElementById('navbar')!;
   const navLinks = document.querySelectorAll('.nav-link') as NodeListOf<HTMLElement>;

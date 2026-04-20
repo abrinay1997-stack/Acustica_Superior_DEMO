@@ -36,7 +36,7 @@ const valores = [
   />
 
   <!-- Historia section -->
-  <section style="padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.06)">
+  <section id="qs-historia" style="padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.06)">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
       <div id="historia-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
 
@@ -80,7 +80,7 @@ const valores = [
   </section>
 
   <!-- Misión & Visión section -->
-  <section style="padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.06); background:#F8F9FA">
+  <section id="qs-mision" style="padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.06); background:#F8F9FA">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
 
       <div style="text-align:center;margin-bottom:4rem">
@@ -129,7 +129,7 @@ const valores = [
   </section>
 
   <!-- Valores section -->
-  <section style="padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.06)">
+  <section id="qs-valores" style="padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.06)">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
 
       <div style="text-align:center;margin-bottom:4rem">
@@ -181,7 +181,13 @@ const valores = [
   }
   @media (max-width: 767px) {
     #valores-grid { grid-template-columns: 1fr !important; }
-    #historia-grid { gap: 2.5rem !important; }
+    #historia-grid { gap: 2rem !important; }
+    /* Reducir padding vertical en todas las secciones */
+    #qs-historia { padding: 3.5rem 0 !important; }
+    #qs-mision   { padding: 3.5rem 0 !important; }
+    #qs-valores  { padding: 3.5rem 0 !important; }
+    /* Reducir imagen de equipo en mobile */
+    #historia-grid img { height: 18rem !important; }
   }
 </style>
 

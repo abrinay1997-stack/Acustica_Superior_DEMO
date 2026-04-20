@@ -110,7 +110,7 @@ const servicios = [
   />
 
   <!-- Intro row -->
-  <section style="padding: 4rem 0 2rem">
+  <section id="servicios-intro" style="padding: 4rem 0 2rem">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;text-align:center">
       <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FD9800;margin-bottom:0.75rem;font-family:'DM Sans',sans-serif">
         Nuestras especialidades
@@ -125,7 +125,7 @@ const servicios = [
   </section>
 
   <!-- Servicios feature list alternado -->
-  <section style="padding:2rem 0 6rem">
+  <section id="servicios-lista" style="padding:2rem 0 6rem">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem;display:flex;flex-direction:column;gap:5rem">
 
       {servicios.map((s) => (
@@ -196,6 +196,14 @@ const servicios = [
     /* En mobile, imagen siempre arriba independientemente del flip */
     .img-col, .img-col-flip { order: 1 !important; }
     .txt-col, .txt-col-flip { order: 2 !important; }
+  }
+  @media (max-width: 767px) {
+    #servicios-intro { padding: 2.5rem 0 1rem !important; }
+    #servicios-lista { padding: 1.5rem 0 3.5rem !important; }
+    #servicios-lista > div { gap: 3rem !important; }
+    .servicio-row { gap: 1.75rem !important; }
+    /* Reducir altura fija de imagen de servicio */
+    .servicio-row img { height: 16rem !important; }
   }
 </style>
 

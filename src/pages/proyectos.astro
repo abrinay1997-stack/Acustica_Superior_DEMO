@@ -26,7 +26,7 @@ const clientes = [
   />
 
   <!-- Intro -->
-  <section style="padding: 4rem 0 2rem">
+  <section id="proyectos-intro" style="padding: 4rem 0 2rem">
     <div style="max-width:80rem;margin:0 auto;padding:0 1.5rem">
       <div style="margin-bottom:2rem">
         <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FD9800;margin-bottom:0.75rem;font-family:'DM Sans',sans-serif">
@@ -80,6 +80,13 @@ const clientes = [
 
   <CTABanner />
 </Layout>
+
+<style>
+  @media (max-width: 767px) {
+    #proyectos-intro { padding: 2.5rem 0 1rem !important; }
+    #clientes-section { padding: 3rem 0 3.5rem !important; }
+  }
+</style>
 
 <script>
   import gsap from 'gsap';
